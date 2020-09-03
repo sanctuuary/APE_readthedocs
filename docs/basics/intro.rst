@@ -31,6 +31,15 @@ For our paper at ICCS 2020 [2]_ we created a video that explains APE in 5 minute
 
 |
 
+.. note::
+       Our `use cases <../demo/imagemagick.html>`_ are motivated by practical 
+       problems in various domains (e.g. bioinformatics, GIS [3]_).
+       For one of the bioinformatics use cases our intern Karl Allgaeuer developed 
+       a prototype of a web-based interface to APE. It is available at 
+       `ape.science.uu.nl <http://ape.science.uu.nl/>`_ (alpha).
+       A Docker version of this demonstrator is available at 
+       `github.com/sanctuuary/Burke_Docker <https://github.com/sanctuuary/Burke_Docker>`_
+
 Credits
 ^^^^^^^
 APE has been inspired by the `Loose Programming framework PROPHETS <http://ls5-www.cs.tu-dortmund.de/projects/prophets/index.php>`_. 
@@ -38,10 +47,6 @@ It uses similar mechanisms for semantic domain modeling, workflow specification 
 exploration and composition functionality independent from a concrete workflow system.
 
 We thank our brave first-generation users for their patience and constructive feedback that helped us to get APE into shape. 
-
-Our use cases are motivated by practical problems in various domains (e.g. bioinformatics, GIS [3]_).
-For one of the bioinformatics use cases our intern Karl Allgaeuer developed a prototype of a web-based interface to APE. It is available at `ape.science.uu.nl <http://ape.science.uu.nl/>`_ (alpha).
-A Docker version of this demonstrator is available at `github.com/sanctuuary/Burke_Docker <https://github.com/sanctuuary/Burke_Docker>`_
 
 License
 ^^^^^^^
