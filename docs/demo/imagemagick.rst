@@ -1,7 +1,13 @@
+.. _demo_label:
+
 ImageMagick - Demo
 ==================
 
-TODO
+Ontology
+^^^^^^^^
+
+Tools
+^^^^^^^^
 
 Example 1
 ^^^^^^^^^

@@ -10,7 +10,12 @@ APE Docs – *master* branch
           you don't understand something, or cannot find what you
           are looking for in the docs, help us make the documentation better
           by submitting an issue or pull request on the  `GitHub repository
-          <https://github.com/sanctuuary/APE/issues>`_!
+          <https://github.com/sanctuuary/APE/issues>`_! 
+          We welcome contributions (bug reports, bug fixes, feature requests, extensions, 
+          use cases, ...) to APE. Please get in touch with 
+          Vedran Kasalica (`v.kasalica@uu.nl <mailto:v.kasalica@uu.nl>`_) to coordinate 
+          your contribution. We expect all contributors to follow our 
+          `Code of Conduct <https://github.com/sanctuuary/APE/blob/master/CODE_OF_CONDUCT.md>`_.
 
 Contents
 ========
@@ -20,6 +25,7 @@ Contents
    :caption: Basics
    
    docs/basics/intro
+   docs/basics/gettingstarted
    docs/basics/install
 
 .. toctree::
