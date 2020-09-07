@@ -21,11 +21,8 @@ project = 'APE'
 copyright = '2020, Vedran Kasalica'
 author = 'Vedran Kasalica'
 
-# Version info for the project, acts as replacement for |version| and |release|
-# The short X.Y version
-version = os.getenv("READTHEDOCS_VERSION", "latest")
 # The full version, including alpha/beta/rc tags
-release = version
+release = 'latest'
 
 master_doc = 'index'
 
