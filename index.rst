@@ -40,6 +40,6 @@ Contents
    :maxdepth: 3
    :caption: Use cases and Demos
 
-   docs/demo/imagemagick
-   docs/demo/geo_gmt
-   docs/demo/massspectrometry
+   docs/demo/imagemagick/imagemagick
+   docs/demo/geo_gmt/geo_gmt
+   docs/demo/massspectrometry/massspectrometry
