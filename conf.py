@@ -17,12 +17,17 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
+needs_sphinx = "1.3"
+
 project = 'APE'
 copyright = '2020, Vedran Kasalica'
 author = 'Vedran Kasalica'
 
+# Version info for the project, acts as replacement for |version| and |release|
+# The short X.Y version
+version = os.getenv("READTHEDOCS_VERSION", "latest")
 # The full version, including alpha/beta/rc tags
-release = 'master'
+release = version
 
 master_doc = 'index'
 
