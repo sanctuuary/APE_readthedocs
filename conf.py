@@ -17,8 +17,6 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
-needs_sphinx = "1.3"
-
 project = 'APE'
 copyright = '2020, Vedran Kasalica'
 author = 'Vedran Kasalica'
