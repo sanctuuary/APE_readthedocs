@@ -15,6 +15,7 @@ import sys
 sys.path.insert(0, os.path.abspath('.'))
 
 import sphinx_rtd_theme
+import sphinx_tabs
 
 # -- Project information -----------------------------------------------------
 
@@ -23,7 +24,7 @@ copyright = '2020, Vedran Kasalica'
 author = 'Vedran Kasalica'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0.1'
+release = 'master'
 
 master_doc = 'index'
 
@@ -33,7 +34,8 @@ master_doc = 'index'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx_rtd_theme'
+    'sphinx_rtd_theme',
+    'sphinx_tabs.tabs'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
