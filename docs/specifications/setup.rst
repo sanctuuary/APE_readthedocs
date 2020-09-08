@@ -14,20 +14,127 @@ The configuration file provides references to all therefor required information:
 3. *Parameters* for the synthesis execution, such as the number of desired solutions, 
    output directory, system configurations, etc.
 
+APE requires an configuration file to set up the framework. This includes the domain ontology and tool annotations. After the framework is initialized, you can run APE by providing a run configuration.
+These configurations are in JSON format and could be joined together to serve as a setup- as well as a run configuration, because APE will only read the required fields.
+Examples of configurations can be found under `Use cases and Demos <../demo/imagemagick/imagemagick.html>`_.
+
 Core configuration
 ~~~~~~~~~~~~~~~~~~
 
-TODO
+The core configuration file is used to set up the APE framework. This file includes a Taxonomy file 
+
++-----------------------------------+--------------------------------------------------------------------+
+| Tag                               | Description                                                        |
++===================================+====================================================================+
+| ``ontology_path``                 | path to the taxonomy file                                          |
++-----------------------------------+--------------------------------------------------------------------+
+| ``ontologyPrexifIRI``             | absolute IRI to identify thhe elements in the taxonomy file        |
++-----------------------------------+--------------------------------------------------------------------+
+| ``toolsTaxonomyRoot``             | name of the root tool class                                        |
++-----------------------------------+--------------------------------------------------------------------+
+| ``dataDimensionsTaxonomyRoots``   | list of roots within the data taxonomy, each sub root represents   |
+|                                   |                                                                    |
+|                                   | data dimension (e.g. data format, data type, etc.)                 |
++-----------------------------------+--------------------------------------------------------------------+
+| ``tool_annotations_path``         | path to the JSON file that contains basic tool annotation          |
+|                                   |                                                                    |
+|                                   | (provided demo example tool_annotations.json)                      |
++-----------------------------------+--------------------------------------------------------------------+
 
 Run configuration
 ~~~~~~~~~~~~~~~~~
 
-TODO
++-----------------------------------+--------------------------------------------------+-------------------+
+| Tag                               | Description                                      | Default           |
++===================================+==================================================+===================+
+| ``constraints_path``              | path to the JSON file containing constraints     | No constraints    |
+|                                   |                                                  |                   |
+|                                   | representing workflow specification              |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``solution_min_length``           | minimum length from which solutions should       |                   |
+|                                   |                                                  |                   |
+|                                   | be searched                                      |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``solution_max_length``           | maximum length to which solutions should be      |                   |
+|                                   |                                                  |                   |
+|                                   | searched, put 0 in case of no limit              |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``max_solutions``                 | max number of solutions that would be returned   |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``solutions_path``                | path to the file where the workflow solutions    | No textual        |
+|                                   |                                                  |                   |
+|                                   | will be written (in textual format)              | output            |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``execution_scripts_folder``      | folder where the executable scripts will be      | No shell          |
+|                                   |                                                  |                   |
+|                                   | generated                                        | scripts           |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``solution_graphs_folder``        | folder where the graphical representation        | No graphics       |
+|                                   |                                                  |                   |
+|                                   | of the workflows will be generated               |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``number_of_execution_scripts``   | number of executable scripts that will be        | 0                 |
+|                                   |                                                  |                   |
+|                                   | generated                                        |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``number_of_generated_graphs``    | number of workflow figures that will be          | 0                 |
+|                                   |                                                  |                   |
+|                                   | generated                                        |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``inputs[]``                      | each input represent a single instance that      | No inputs         |
+|                                   |                                                  |                   |
+|                                   | will be an input to the program                  |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``inputs[]/{}``                   | each of the inputs can be described using the    |                   |
+|                                   |                                                  |                   |
+|                                   | terms from data taxonomy, the tags used          |                   |
+|                                   |                                                  |                   |
+|                                   | (in our example "TypesTaxonomy" reflects         |                   |
+|                                   |                                                  |                   |
+|                                   | the corresponding taxonomy sub root              |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``outputs[]``                     | each output represent a single instance that     | No outputs        |
+|                                   |                                                  |                   |
+|                                   | will be an output of the program                 |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``outputs[]/{}``                  | each of the inputs can be described using        |                   |
+|                                   |                                                  |                   |
+|                                   | the terms from data taxonomy, the tags           |                   |
+|                                   |                                                  |                   |
+|                                   | used (in our example "TypesTaxonomy"             |                   |
+|                                   |                                                  |                   |
+|                                   | reflects the corresponding taxonomy sub root     |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``shared_memory``                 | true in a case of shared, memory structure,      | True              |
+|                                   |                                                  |                   |
+|                                   | false if the message passing structure should    |                   |
+|                                   |                                                  |                   |
+|                                   | be used                                          |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``debug_mode``                    | true for debug command line output               | False             |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``use_workflow_input``            | ALL' if all the workflow inputs have to be       | ONE               |
+|                                   |                                                  |                   |
+|                                   | used,'ONE' if one of the workflow inputs         |                   |
+|                                   |                                                  |                   |
+|                                   | should be used or 'NONE' if none of the          |                   |
+|                                   |                                                  |                   |
+|                                   | workflow inputs has to be used                   |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``use_all_generated_data``        | ALL' if all the generated data has to be used,   | ALL               |
+|                                   |                                                  |                   |
+|                                   | 'ONE' if one of the data instances that are      |                   |
+|                                   |                                                  |                   |
+|                                   | generated as output, per tool, has to be used    |                   |
+|                                   |                                                  |                   |
+|                                   | or 'NONE' if none of the data instances is       |                   |
+|                                   |                                                  |                   |
+|                                   | obligatory to use                                |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+
 
 Domain Model
 ^^^^^^^^^^^^^
-
-TODO
 
 APE loads the domain ontology from a file in Web Ontology Language 
 (OWL) format. Domain ontology consists of taxonomic classifications 
@@ -35,10 +142,78 @@ of the data and operations in the application domain, and provides
 a controlled  vocabulary  that  allows  for  different  abstraction
 levels  of  its  elements.
 
-Tool Annotations file
-^^^^^^^^^^^^^^^^^^^^^
+Demo file: `ImageMagick/imagemagick_taxonomy.owl <https://github.com/sanctuuary/APE_UseCases/blob/master/ImageMagick/imagemagick_taxonomy.owl>`_
 
-TODO
+Used to classify tools and data types into 2 different categories. General structure is that the main class "thing" has 2 subclasses, **Tools** and **Data** taxonomies. Furthermore, Data taxonomy consists of multiple subtaxpnpmies, where each represents a **dimension** of data, in the following example we discuss 2 different dimensions of data, namely, data *type* and data *format*.
+- **thing** (root class in the OWL file)
+
+  - **Tools Taxonomy** (URI provided as modulesTaxonomyRoot in config file)
+  - **Type Taxonomy** (URI provided under **dataDimensionsTaxonomyRoots** in config file)
+  - **Format Taxonomy** (URI provided under **dataDimensionsTaxonomyRoots** in config file)
+
+**Tools Taxonomy** consists of terms that describes operations from the domain, these are called abstraction operations and they usually gropu concrete operations.
+**Type Taxonomy** consists of actual data types from the domain, as well as the abstraction classes that subsume them.
+**Format Taxonomy** consists of actual data Format from the domain, as well as the abstraction classes that subsume them.
+
+Idea behind using a Format Taxonomy, is that a certain data instance require both, *data type* and *data format* to be identified. Thus, these are called dimensions of data. Having more than one data dimension is optional. Some use cases only one data dimension (see [GeoGMT](GeoGMT)), while some can have more than two.
+
+A concrete example of a domain taxonomy can be found `here <https://github.com/sanctuuary/APE_UseCases/tree/master/ImageMagick#domain-ontology>`_.
+
+.. note::
+   Encoding supports explicit subclass relations in RDF format. The rest of the OWL file annotations will be omitted.
+
+
+Tool Annotations
+^^^^^^^^^^^^^^^^
+
+Demo file: `ImageMagick/tool_annotations.json <https://github.com/sanctuuary/APE_UseCases/blob/master/ImageMagick/tool_annotations.json>`_
+The file has the following structure:
+
+.. code-block:: shell
+
+   functions
+      +function
+         ID
+         label
+            taxonomyOperations[]
+         ?inputs[]
+            +input
+               +dataSubTaxonomyRoot:[taxonomyTerm]
+         ?outputs[]
+            +output
+               +dataSubTaxonomyRoot:[taxonomyTerm]
+         ?implementation
+            code
+
+where (+) requires 1 or more, (?) requires 0 or 1 and no sign requires existence of exactly 1 such tag.
+
+Regarding the semantics:
+
++-------------------------+----------------------------------------------------+
+| ``function``            | an implementation/instance of a tool               |
++-------------------------+----------------------------------------------------+
+| ``ID``                  | unique identifier of the tool                      |
++-------------------------+----------------------------------------------------+
+| ``label``               | display label of the tool implementation           |
++-------------------------+----------------------------------------------------+
+| ``taxonomyOperations``  | operations from the tool taxonomy (#taxonomy-file) |
+|                         |                                                    |
+|                         | that the current function implements               |
++-------------------------+----------------------------------------------------+
+| ``input``               | a single input of the workflow                     |
++-------------------------+----------------------------------------------------+
+| ``output``              | a single output of the workflow                    |
++-------------------------+----------------------------------------------------+
+| ``dataSubTaxonomyRoot`` | data type that describes the input/output          |
+|                         |                                                    |
+|                         | (each taxonomyTerm from the [taxonomyTerm] list    |
+|                         |                                                    |
+|                         | has to belong to the corresponding subTaxonomy)    |
++-------------------------+----------------------------------------------------+
+| ``code``                | code that will be used to implement the workflow   |
+|                         |                                                    |
+|                         | as a script                                        |
++-------------------------+----------------------------------------------------+
 
 The Tool Annotations file is a collection of tools that have been semantically 
 annotated, according to their inputs and outputs, based on the terms from the ontology. 
@@ -63,7 +238,6 @@ format.
                   convert $@input[0] $@output[0]\n" 
       }
    }
-
 
 Referencing the Domain Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -115,4 +289,33 @@ or the output of a previous tool.
 Constraints File
 ^^^^^^^^^^^^^^^^
 
-TODO
+Demo file: `ImageMagick/Example1/constraints.json <https://github.com/sanctuuary/APE_UseCases/blob/master/ImageMagick/Example1/constraints.json>`_
+
+The list of all the natural language templates is provided in 'SimpleDemo/constraints templates.json'. As an example we will present one of the constraint templates, namely "if then generate type" is represented as follows:
+
+.. code-block:: json
+
+	{
+	   "constraintid": "gen_ite_t",
+	   "description": "If we have generated data type ${parameter_1}, 
+                           then generate type ${parameter_2} subsequently.",
+	   "parameters": [
+		  ["${parameter_1}"],
+		  ["${parameter_2}"]
+	   ]
+	}
+
+where both ``"${parameter_1}"`` and ``"${parameter_2}"`` represent a sequence of one or more data terms. The following encoding represents a use of such constraint in practice (tag ``"description"`` is not obligatory):
+
+.. code-block:: json
+
+   {
+      "constraintid": "gen_ite_t",
+      "parameters": [
+         ["article","docx"],
+         ["article","pdf"]
+      ]
+   }
+
+The constraint is interpreted as: 
+"If an **article** in **docx** format was generated, then an **article** in **pdf** format has to be generated subsequently."

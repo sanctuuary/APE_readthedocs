@@ -1,10 +1,10 @@
 APE as a Java Library
 =====================
 
-Run APE from a java environment
+Run APE from a Java environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Like the CLI, the APE API relies on a configuration file that references 
+Like the CLI, the APE API relies on a configuration file or object that references 
 the domain ontology, tool annotations, workflow specification and execution 
 parameters:
 

@@ -24,7 +24,7 @@ Contents
    :maxdepth: 3
    :caption: Basics
    
-   docs/basics/intro
+   docs/basics/ape-introduction
    docs/basics/gettingstarted
    docs/basics/install
 
@@ -40,6 +40,7 @@ Contents
    :maxdepth: 3
    :caption: Use cases and Demos
 
+   docs/demo/demo-introduction
    docs/demo/imagemagick/imagemagick
    docs/demo/geo_gmt/geo_gmt
    docs/demo/massspectrometry/massspectrometry
