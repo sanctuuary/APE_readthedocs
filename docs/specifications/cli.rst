@@ -22,5 +22,5 @@ you could run this demo by executing the following command:
 
 .. code-block:: shell
 
-    ../APE_UseCases> java -jar APE-1.0.1-executable.jar ImageMagick/Example1/config.json
+    <~/git/APE_UseCases> java -jar APE-1.0.1-executable.jar ImageMagick/Example1/config.json
     
