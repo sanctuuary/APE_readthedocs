@@ -4,24 +4,30 @@ APE Setup
 Configuration file
 ^^^^^^^^^^^^^^^^^^
 
-The configuration file provides references to all therefor required information:
+In order to run APE from the command line, a (JSON) configuration file needs to be provided. The file provides references to all required information, that can be classified in the following 3 groups:
 
 1. *Domain model* - classification of the types and operations in the domain in form 
-   of an **ontology** (see `ontology example <../demo/imagemagick.html#ontology>`_ in OWL) 
-   and a **tool annotation file** (see `tool annotations example <../demo/imagemagick.html#tools>`_ in JSON).
+   of an **ontology** (see `ontology example <../demo/imagemagick.html#ontology>`_ in OWL format) 
+   and a **tool annotation file** (see `tool annotations example <../demo/imagemagick.html#tools>`_ in JSON format).
 2. *Workflow specification* - including a list of **workflow inputs/outputs** and template-based 
    (see constraint templates) **workflow constraints** (see workflow constraints example)
 3. *Parameters* for the synthesis execution, such as the number of desired solutions, 
    output directory, system configurations, etc.
 
-APE requires an configuration file to set up the framework. This includes the domain ontology and tool annotations. After the framework is initialized, you can run APE by providing a run configuration.
-These configurations are in JSON format and could be joined together to serve as a setup- as well as a run configuration, because APE will only read the required fields.
+Although the command line tool takes the configuration file as a whole, the configuration can be divided into **core** and **run configuration** segments. This is especially visible when working with the APE API, where the two are explicitly distinguished.
+
+The **core configuration** provides the crucial information needed to initially setup the environment, it can also be seen as *domain model configuration*, as it includes the information regarding the domain ontology and tool annotations. Once the framework is initialized, the user can run APE by providing a **run configuration**.
+
+The **run configuration** contains all the information needed to execute the workflow synthesis and present the results to the user. This information includes the workflow specification (workflow inputs/ outputs and workflow constraints) and the execution parameters (such as path to the directory where the solutions will be generated, number of solutions needed, etc.).
+
+These configurations are in JSON format and could be joined together, to serve as a setup- as well as a run configuration, because APE will only read the required fields. This is viible when APE is run from command line.
+
 Examples of configurations can be found under `Use cases and Demos <../demo/imagemagick/imagemagick.html>`_.
 
 Core configuration
 ~~~~~~~~~~~~~~~~~~
 
-The core configuration file is used to set up the APE framework. This file includes a Taxonomy file 
+The core configuration is structured as follows:
 
 +-----------------------------------+--------------------------------------------------------------------+
 | Tag                               | Description                                                        |
@@ -44,6 +50,8 @@ The core configuration file is used to set up the APE framework. This file inclu
 Run configuration
 ~~~~~~~~~~~~~~~~~
 
+The run configuration is structured as follows:
+
 +-----------------------------------+--------------------------------------------------+-------------------+
 | Tag                               | Description                                      | Default           |
 +===================================+==================================================+===================+
@@ -63,7 +71,7 @@ Run configuration
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``solutions_path``                | path to the file where the workflow solutions    | No textual        |
 |                                   |                                                  |                   |
-|                                   | will be written (in textual format)              | output            |
+|                                   | will be written				       | output            |
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``execution_scripts_folder``      | folder where the executable scripts will be      | No shell          |
 |                                   |                                                  |                   |
