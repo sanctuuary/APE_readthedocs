@@ -153,8 +153,10 @@ Request information about the configuration fields using the APEConfigTag.Info s
             Number of executions scripts needs a value from 0 to 2147483647
             Number of generated graphs needs a value from 0 to 2147483647
 
-Evaluating an input value (not in ``APE-1.0.2_7704eb-executable.jar`` yet)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Evaluating an input value 
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(not in ``APE-1.0.2_7704eb-executable.jar`` yet)
 
 .. code-block:: java
 
