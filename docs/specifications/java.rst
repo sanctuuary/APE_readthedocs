@@ -52,4 +52,119 @@ TODO
 APE as a Web plug-in
 ^^^^^^^^^^^^^^^^^^^^^
 
-TODO
+.. note::
+    The following documentation is for APE **1.0.2**, which will be released soon.
+    If you cannot wait to get started with this part, use :download:`APE-1.0.2_7704eb-executable.jar <../../files/APE-1.0.2_7704eb-executable.jar>` 
+    for now, generated from `this <https://github.com/sanctuuary/APE/tree/7704ebaaa460cfddee238851aefe9f92e6e5714a>`_ commit.
+
+
+Field info
+~~~~~~~~~~
+
+Request information about the configuration fields in JSON format:
+
+.. code-block:: java
+
+    JSONObject tag_info = APERunConfig.getTags().toJSON();
+
+This results in the following (partial) JSON:
+
+.. tabs::
+
+    .. tab:: JSON
+
+        .. code-block:: json
+
+            {"tags": [
+                {
+                    "default": true,
+                    "description": "",
+                    "optional": true,
+                    "tag": "shared_memory",
+                    "label": "Use shared memory",
+                    "type": "BOOLEAN"
+                },
+                {
+                    "description": "",
+                    "optional": false,
+                    "tag": "max_solutions",
+                    "label": "Maximum number of solutions",
+                    "type": "INTEGER",
+                    "constraints": {
+                        "min": 0,
+                        "max": 2147483647
+                    }
+                },
+                {
+                    "default": "ONE",
+                    "description": "",
+                    "optional": true,
+                    "tag": "use_all_generated_data",
+                    "label": "Use all generated data",
+                    "type": "ENUM",
+                    "constraints": {"options": [
+                        "NONE",
+                        "ONE",
+                        "ALL"
+                    ]}
+                }
+            ]}
+
+    .. tab:: Structure
+
+        .. code-block:: shell
+
+            tags[] (JSONArray)
+            ├── tag (String)
+            ├── label (String)
+            ├── description (String)
+            ├── type (String)
+            ├── optional (Boolean)
+            ├──? default (Type)            (depending on `optional` and `type`)
+            └──? constraints (JSONObject)  (depending on `type`)
+                ├──? min (int)           (depending on `type`)
+                ├──? max (int)           (depending on `type`)
+                └──? options (String[])  (depending on `type`)
+
+
+Request information about the configuration fields using the APEConfigTag.Info struct:
+
+.. tabs::
+
+    .. tab:: Java
+
+        .. code-block:: java
+
+            for(APEConfigTag.Info<?> tag : APERunConfig.getTags().getAll()){
+                if(tag.type == APEConfigTag.TagType.INTEGER){
+                    System.out.printf("%s needs a value from %s to %s\n", 
+                        tag.label, 
+                        tag.constraints.getInt("min"), 
+                        tag.constraints.getInt("max")
+                    );
+                }
+            }
+
+    .. tab:: output
+
+        .. code-block:: shell
+
+            Maximum number of solutions needs a value from 0 to 2147483647
+            Number of executions scripts needs a value from 0 to 2147483647
+            Number of generated graphs needs a value from 0 to 2147483647
+
+Evaluating an input value (not in ``APE-1.0.2_7704eb-executable.jar`` yet)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: java
+
+    APE ape = new APE( ... );
+
+    APERunConfig run_config = APERunConfig.builder()
+        .withSolutionLength(1, 6)
+        .withWorklowInput(ConfigEnum.ALL)
+        .build();
+            
+    for(ValidationResult result : ape.validate(config).getFails()){
+        System.out.printf("Tag %s in incorrect: %s", result.getTag(), result.getRuleDescription());
+    }
