@@ -173,7 +173,8 @@ A concrete example of a domain taxonomy can be found `here <https://github.com/s
 
 Tool Annotations
 ^^^^^^^^^^^^^^^^
-
+Structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Demo file: `ImageMagick/tool_annotations.json <https://github.com/sanctuuary/APE_UseCases/blob/master/ImageMagick/tool_annotations.json>`_
 The file has the following structure:
 
@@ -223,6 +224,8 @@ Regarding the semantics:
 |                         | as a script                                        |
 +-------------------------+----------------------------------------------------+
 
+Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The Tool Annotations file is a collection of tools that have been semantically 
 annotated, according to their inputs and outputs, based on the terms from the ontology. 
 The following example annotated the tool ``compress``, which takes as 
