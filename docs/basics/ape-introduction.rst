@@ -34,7 +34,7 @@ For our paper at ICCS 2020 [2]_ we created a video that explains APE in 5 minute
 .. note::
        Our `use cases <../demo/imagemagick.html>`_ are motivated by practical 
        problems in various domains (e.g. bioinformatics, GIS [3]_).
-       For one of the bioinformatics use cases our intern Karl Allgaeuer developed 
+       For one of the bioinformatics use cases, our intern Karl Allgaeuer developed 
        a prototype of a web-based interface to APE. It is available at 
        `ape.science.uu.nl <http://ape.science.uu.nl/>`_ (alpha).
        A Docker version of this demonstrator is available at 
@@ -71,15 +71,15 @@ References
 .. [1] Kasalica, V., & Lamprecht, A.-L. (2020). 
        Workflow Discovery with Semantic Constraints:
        The SAT-Based Implementation of APE. Electronic Communications of the EASST, 78(0).
-       `https://doi.org/10.14279/tuj.eceasst.78.1092 <https://doi.org/10.14279/tuj.eceasst.78.1092>`_
+       https://doi.org/10.14279/tuj.eceasst.78.1092
 
 .. [2] Kasalica V., Lamprecht AL. (2020) 
        APE: A Command-Line Tool and API for Automated Workflow Composition. 
        ICCS 2020. ICCS 2020. Lecture Notes in Computer Science, vol 12143. Springer,
-       `https://doi.org/10.1007/978-3-030-50436-6_34 <https://doi.org/10.1007/978-3-030-50436-6_34>`_
+       https://doi.org/10.1007/978-3-030-50436-6_34
 
 .. [3] Kasalica, V., & Lamprecht, A.-L. (2019). 
        Workflow discovery through semantic constraints: A geovisualization case study. 
        In Computational science and its applications – ICCSA 2019
        (pp. 473–488), Springer International Publishing,
-       `https://doi.org/10.1007/978-3-030-24302-9_53 <https://doi.org/10.1007/978-3-030-24302-9_53>`_
+       https://doi.org/10.1007/978-3-030-24302-9_53

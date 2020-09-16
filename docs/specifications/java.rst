@@ -10,6 +10,19 @@ parameters:
 
 .. code-block:: java
 
+   APECoreConfig setup = new APECoreConfig(
+         new File("GeoGMT/GMT_UseCase_taxonomy.owl"),
+         "http://www.co-ode.org/ontologies/ont.owl#",
+         "ToolsTaxonomy",
+         Arrays.asList("TypesTaxonomy"),
+         new File("GeoGMT/tool_annotations.json")
+   );
+
+   APE framework = new APE(setup);
+
+
+.. code-block:: java
+
     // set up the framework
     APE ape = new APE("path/to/setup-configuration.json");
 

@@ -1,5 +1,5 @@
 Overview
-============
+========
 
 The use cases aim to describe the domain knowledge that has to be 
 provided, comprising `Domain ontology <../../specifications/setup.html#domain-model>`_ and 
@@ -21,6 +21,7 @@ Each of the uses cases represent a different scenario:
   
   * `No1 <massspectrometry/massspectrometry.html#no-1>`_ - use case describes the 1st Use Case described in the paper, labeled as **No. 1**.
 
+|
 
 .. [1] Kasalica V., Lamprecht AL. (2019) Workflow Discovery Through Semantic Constraints: A Geovisualization Case Study. In: Misra S. et al. (eds) Computational Science and Its Applications – ICCSA 2019. ICCSA 2019. Lecture Notes in Computer Science, vol 11621. Springer, Cham. https://doi.org/10.1007/978-3-030-24302-9_34
 .. [2] Magnus Palmblad, Anna-Lena Lamprecht, Jon Ison, Veit Schwämmle, Automated workflow composition in mass spectrometry-based proteomics, Bioinformatics, Volume 35, Issue 4, 15 February 2019, Pages 656–664, https://doi.org/10.1093/bioinformatics/bty646
