@@ -26,13 +26,6 @@ release = 'latest'
 
 master_doc = 'index'
 
-html_context = {
-  'display_github': True,
-  'github_user': 'sanctuuary',
-  'github_repo': 'APE',
-  'github_version': 'master',
-  'github_url': 'https://github.com/sanctuuary/APE'
-}
 
 # -- General configuration ---------------------------------------------------
 
