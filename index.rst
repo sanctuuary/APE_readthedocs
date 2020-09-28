@@ -1,4 +1,4 @@
-APE Docs – *master* branch
+APE Docs
 ==========================
 
 .. attention:: This is the documentation for the development (master) branch.
