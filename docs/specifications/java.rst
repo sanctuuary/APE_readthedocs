@@ -6,11 +6,24 @@ Run APE from a Java environment
 
 Like the CLI, the APE API relies on a configuration file or object that references 
 the domain ontology, tool annotations, workflow specification and execution 
-parameters:
+parameters. All the parameters can either be set by a JSONObject/JSON file or 
+be set programmatically.
+
+APE API functions
+^^^^^^^^^^^^^^^^^
+
+Environment Setup
+~~~~~~~~~~~~~~~~~
+
+Setup the APE framework with a JSON file or provide the required information programmatically:
 
 .. code-block:: java
 
-   APECoreConfig setup = new APECoreConfig(
+    // JSON
+   APE framework1 = new APE("path/to/setup-configuration.json");
+
+    // programmatically
+   APECoreConfig config = new APECoreConfig(
          new File("GeoGMT/GMT_UseCase_taxonomy.owl"),
          "http://www.co-ode.org/ontologies/ont.owl#",
          "ToolsTaxonomy",
@@ -18,49 +31,175 @@ parameters:
          new File("GeoGMT/tool_annotations.json")
    );
 
-   APE framework = new APE(setup);
+   APE framework2 = new APE(config);
 
+Run Specifications Setup 
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+After setting up the framework, create a Run configuration with a JSON file 
+or provide the required information programmatically:
+
+.. code-block:: java
+
+    // JSON
+    APERunConfig runConfig1 = new APERunConfig("path/to/run-configuration.json");
+
+    // programmatically
+    APERunConfig runConfig2 = APERunConfig.builder()
+                                .withSolutionMinLength(1)
+                                .withSolutionMaxLength(10)
+                                .withMaxNoSolutions(100)
+                                .withApeDomainSetup(framework.getDomainSetup())
+                                .build();
+
+Run the Synthesis
+~~~~~~~~~~~~~~~~~
+
+.. code-block:: java
+
+    APE framework = new APE( .. );
+    APERunConfig runConfig = .. ;
+
+    SATsolutionsList solutions = framework.runSynthesis(runConfig);
+
+    // write the solutions to the file system
+    APE.writeSolutionToFile(solutions); // write solutions to ./sat_solutions.txt
+    APE.writeDataFlowGraphs(solutions, Rank.RankDir.TOP_TO_BOTTOM); // save images to ./Figures/
+    APE.writeExecutableWorkflows(solutions); // save scripts to ./Executables/
+
+
+The API allows to generate and edit the configuration file programmatically between runs:
 
 .. code-block:: java
 
     // set up the framework
-    APE ape = new APE("path/to/setup-configuration.json");
+    APE framework = new APE( .. );
+    APERunConfig runConfig = .. ;
 
-    // run the synthesis
-    SATsolutionsList solutions = ape.runSynthesis("path/to/run-configuration.json");
-    // write the solutions for the file system
-    APE.writeSolutionToFile(solutions);
-    APE.writeDataFlowGraphs(solutions, RankDir.TOP_TO_BOTTOM);
-    APE.writeExecutableWorkflows(solutions);
-
-However, the API allows to generate and edit the configuration file programmatically:
-
-.. code-block:: java
-
-    // set up the framework
-    APECoreConfig coreConfig = new APECoreConfig(...);
-    APE ape = new APE(coreConfig);
-
-    // run the synthesis
-    APERunConfig runConfig = APERunConfig.builder()
-                                 .withSolutionMinLength(1)
-                                 .withSolutionMaxLength(10)
-                                 .withMaxNoSolutions(100)
-                                 .withApeDomainSetup(ape.getDomainSetup())
-                                 .build();
-                                 
-    SATsolutionsList solutions1 = ape.runSynthesis(runConfig);
+    // run the synthesis                   
+    SATsolutionsList solutions1 = framework.runSynthesis(runConfig);
 
     // run the synthesis again with altered parameters
     runConfig.setUseWorkflowInput(ConfigEnum.ONE);
     SATsolutionsList solutions2 = ape.runSynthesis(runConfig);
 
-For more information see `APE javadoc.io <https://javadoc.io/doc/io.github.sanctuuary/APE/latest/nl/uu/cs/ape/sat/APE.html>`_ page.
+SATsolutionsList
+~~~~~~~~~~~~~~~~
 
-APE API functions
-^^^^^^^^^^^^^^^^^
+Functions to retrieve data (that can be visualized).
 
-TODO
+- **SATsolutionsList**: The solution set retrieved from the synthesis execution.
+
+  - ``int getNumberOfSolutions()`` Amount of solutions.
+  - ``SolutionWorkflow get(int index)`` Get solution i.
+
+- **SolutionWorkFlow**: One solution workflow.
+
+  - ``int getSolutionlength()`` The length of the solution.
+  - ``List<ModuleNode> getModuleNodes()`` The tools represented in the workflow.
+  - ``List<TypeNode> getWorkflowInputTypeStates()`` Data instances used as input of the workflow.
+  - ``List<TypeNode> getWorkflowOutputTypeStates()`` Data instances representing the output of the workflow.
+
+- **ModuleNode**: contains information about a tool in a workflow.
+
+  - ``String getNodeID()`` The ID of the tool.
+  - ``String getNodeLabel()`` The name of the tool.
+  - ``boolean hasNextModule()`` The output of this tool is used as input for another tool (outgoing arrow).
+  - ``ModuleNode getNextModuleNode()`` Get the next tool.
+  - ``boolean hasPrevModule()`` The input of this tool was the output of another tool (incoming arrow).
+  - ``ModuleNode getPrevModuleNode()`` Get the previous tool.
+  - ``List<TypeNode> getInputTypes()`` Data instances used as input of the tool.
+  - ``List<TypeNode> getOutputTypes()`` Data instances used as output of the tool.
+
+- **TypeNode**: a data instance
+
+  - ``String getNodeID()`` The ID of the data instance.
+  - ``String getShortNodeID()`` The name of the data instance (e.g. node12345).
+  - ``SortedSet<Type> getTypes()`` Containing n values for the n-dimensions.
+
+The following example prints a SolutionWorkflow to the console.
+
+.. tabs::
+
+    .. tab:: Java
+
+        .. code-block:: java
+
+            /**
+            * Print SolutionWorkflow to the console
+            */
+            public static void printReadableWorkflowSolution(SolutionWorkflow solution) {
+                System.out.println("INPUT:" + inputTypesToString(solution.getWorkflowInputTypeStates()) + "\n");
+                // print the first solution
+                solution.getModuleNodes().forEach(node -> {
+                    System.out.printf("Tool %s" +
+                                    "\n\tInput data: %s" +
+                                    "\n\tOutput data %s" +
+                                    "\n\tNext tool: %s" +
+                                    "\n\tPrevious tool: %s\n\n",
+                            node.getNodeLabel(),
+                            inputTypesToString(node.getInputTypes()),
+                            inputTypesToString(node.getOutputTypes()),
+                            node.hasNextModule() ? node.getNextModuleNode().getNodeLabel() : "",
+                            node.hasPrevModule() ? node.getPrevModuleNode().getNodeLabel() : ""
+                    );
+                });
+
+                System.out.println("\nOUTPUT:" + inputTypesToString(solution.getWorkflowOutputTypeStates()));
+            }
+
+            /**
+            * If a type node is a PNG as well as an Image (2 dimensions) and has id node12345, 
+            * this method returns "(node12345[PNG, Image])"
+            * SortedSet Type  can be obtained from typeNode.getTypes();
+            */
+            private static String inputTypesToString(List<TypeNode> types){
+                return types.stream()
+                        .map(data -> "(" + data.getShortNodeID() + typeToString(data.getTypes()) + ")")
+                        .collect(Collectors.toList())
+                        .toString();
+            }
+
+            /**
+            * If a data instance is a PNG as well as an Image (2 dimensions), 
+            * this method returns "[PNG, Image]"
+            * SortedSet Type  can be obtained from typeNode.getTypes();
+            */
+            private static String typeToString(SortedSet<Type> dimensions){
+                return dimensions.stream()
+                        .map(Type::getPredicateLabel)
+                        .collect(Collectors.toList())
+                        .toString();
+            }
+
+    .. tab:: Output
+
+        .. code-block:: shell
+
+            INPUT:[(node579867570[PNG, Image]), (node1548883689[String, Content])]
+
+            Tool generate_color
+                Input data: []
+                Output data [(node173380607[String, Color]), (node676323030[])]
+                Next tool: generate_font
+                Previous tool: 
+            Tool generate_font
+                Input data: []
+                Output data [(node1695080704[String, FontFamily]), (node676323991[])]
+                Next tool: add_small_border
+                Previous tool: generate_color
+            Tool add_small_border
+                Input data: [(node579867570[PNG, Image]), (node173380607[String, Color])]
+                Output data [(node579870453[PNG, Image]), (node676324952[])]
+                Next tool: add_title
+                Previous tool: generate_font
+            Tool add_title
+                Input data: [(node579870453[PNG, Image]), (node173380607[String, Color]), (node1695080704[String, FontFamily]), (node1548883689[String, Content])]
+                Output data [(node579871414[PNG, Image]), (node676325913[])]
+                Next tool: 
+                Previous tool: add_small_border
+
+            OUTPUT:[(node579871414[PNG, Image])]
 
 APE as a Web plug-in
 ^^^^^^^^^^^^^^^^^^^^^
@@ -68,17 +207,50 @@ APE as a Web plug-in
 .. note::
     The following documentation is for APE **1.0.2**, which will be released soon.
     If you cannot wait to get started with this part, use :download:`APE-1.0.2_0e3633-executable.jar <../../files/APE-1.0.2_0e3633-executable.jar>` 
-    for now, generated from `this <https://github.com/sanctuuary/APE/tree/0e36337558957595d14fc466f5d3a78c110e180d>`_ commit.
+    (30-09-2020) for now, generated from `this <https://github.com/sanctuuary/APE/tree/0e36337558957595d14fc466f5d3a78c110e180d>`_ commit.
 
+Tag information
+~~~~~~~~~~~~~~~
 
-Field info
-~~~~~~~~~~
+Tag Types
+---------
 
-Request information about the configuration fields in JSON format:
+Tags can have the following type enummerations:
+
++---------------------+---------------------------------------------------+
+| Type                | Description                                       |
++=====================+===================================================+
+| ``FILE_PATH``       | A path to a file                                  |
++---------------------+---------------------------------------------------+
+| ``FOLDER_PATH``     | A path to a folder                                |
++---------------------+---------------------------------------------------+
+| ``URI``             | URI of the ontology file                          |
++---------------------+---------------------------------------------------+
+| ``INTEGER``         | One integer with boundaries                       |
++---------------------+---------------------------------------------------+
+| ``INTEGER_RANGE``   | Two integers with boundaries                      |
++---------------------+---------------------------------------------------+
+| ``BOOLEAN``         | Yes/No, True/False                                |
++---------------------+---------------------------------------------------+
+| ``ENUM``            | A setting                                         |
++---------------------+---------------------------------------------------+
+| ``DATA_DIMENSIONS`` | Root names of the data dimensions                 |
++---------------------+---------------------------------------------------+
+| ``DATA_INSTANCES``  | Data instances based on the data dimensions       |
++---------------------+---------------------------------------------------+
+| ``MODULE``          | A class from the ontology (in this case a tool)   |
++---------------------+---------------------------------------------------+
+
+Info by JSON
+------------
+
+Request information about the (run)configuration fields in JSON format. 
+Note that ``"type"`` is one of the enummerations mentioned above:
 
 .. code-block:: java
 
-    JSONObject tag_info = APERunConfig.getTags().toJSON();
+    JSONObject tag_info = APERunConfig.TAGS.toJSON();
+    System.out.println(tag_info.toString(2));
 
 This results in the following (partial) JSON:
 
@@ -135,12 +307,17 @@ This results in the following (partial) JSON:
             ├── optional (Boolean)
             ├──? default (Type)            (depending on `optional` and `type`)
             └──? constraints (JSONObject)  (depending on `type`)
-                ├──? min (int)           (depending on `type`)
-                ├──? max (int)           (depending on `type`)
-                └──? options (String[])  (depending on `type`)
+                ├──? min (int)             (depending on `type`)
+                ├──? max (int)             (depending on `type`)
+                └──? options (String[])    (depending on `type`)
 
+Info by API
+-----------
 
-Request information about the configuration fields using the APEConfigTag.Info struct:
+Request information about the (run)configuration fields by calling TAGS statically. 
+This will return a list of ``Info``'s that can be queried. At the moment, 
+``constraints.tags`` returns a JSONObject and can contain the following tags:
+``min``, ``min``, ``options``.
 
 .. tabs::
 
@@ -148,36 +325,131 @@ Request information about the configuration fields using the APEConfigTag.Info s
 
         .. code-block:: java
 
-            for(APEConfigTag.Info<?> tag : APERunConfig.getTags().getAll()){
+            for(APEConfigTag.Info<?> tag : APERunConfig.TAGS.getAll()){
+
                 if(tag.type == APEConfigTag.TagType.INTEGER){
-                    System.out.printf("%s needs a value from %s to %s\n", 
-                        tag.label, 
-                        tag.constraints.getInt("min"), 
-                        tag.constraints.getInt("max")
+                    System.out.printf("`%s` needs a value from %s to %s\n",
+                            tag.label,
+                            tag.constraints.getInt("min"),
+                            tag.constraints.getInt("max")
                     );
+                }
+
+                else if(tag.type == APEConfigTag.TagType.ENUM){
+                    JSONArray arr = tag.constraints.getJSONArray("options");
+                    String[] options = new String[arr.length()];
+                    for(int i = 0; i < arr.length(); i++){
+                        options[i] = arr.get(i).toString();
+                    }
+                    System.out.printf("`%s` needs a setting from this list: %s\n", 
+                            tag.label, 
+                            Arrays.toString(options)
+                    );
+                }
+                
+                else if(tag.type == APEConfigTag.TagType.FILE_PATH){
+                    System.out.printf("`%s` needs a file.\n", tag.label);
                 }
             }
 
-    .. tab:: output
+    .. tab:: Output
 
         .. code-block:: shell
 
-            Maximum number of solutions needs a value from 0 to 2147483647
-            Number of executions scripts needs a value from 0 to 2147483647
-            Number of generated graphs needs a value from 0 to 2147483647
+            `Constraints` needs a file.
+            `Maximum number of solutions` needs a value from 0 to 2147483647
+            `Number of executions scripts` needs a value from 0 to 2147483647
+            `Number of generated graphs` needs a value from 0 to 2147483647
+            `Use workflow input` needs a setting from this list: [NONE, ONE, ALL]
+            `Use all generated data` needs a setting from this list: [NONE, ONE, ALL]
 
-Evaluating an input value 
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Evaluating a configuration object 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: java
+Use ``APERunConfig`` and ``APECoreConfig`` statically to check if 
+your configuration file is correct.
 
-    APE ape = new APE( ... );
+In this first example, the number of solutions ``"-10"`` is 
+not checked as it is not part of the core configuration setup.
 
-    APERunConfig run_config = APERunConfig.builder()
-        .withSolutionLength(1, 6)
-        .withWorklowInput(ConfigEnum.ALL)
-        .build();
-            
-    for(ValidationResult result : ape.validate(config).getFails()){
-        System.out.printf("Tag %s in incorrect: %s", result.getTag(), result.getRuleDescription());
-    }
+.. tabs::
+
+    .. tab:: Java
+
+        .. code-block:: java
+
+            JSONObject config = ..;
+            config.put("tool_annotations_path", "does/not/exist.json");
+            config.put("max_solutions", "-10");
+
+            ValidationResults results = APECoreConfig.validate(config);
+            System.out.println("Configuration file is correct: " + results.success());
+
+            for(ValidationResult result : results.getFails()){
+                System.out.println(result.getTag() + ": " + result.getRuleDescription());
+            }
+    
+    .. tab:: Output
+
+        .. code-block:: shell
+
+            Configuration file is correct: false
+            tool_annotations_path: Provided path 'does/not/exist.json' for tag 'tool_annotations_path' does not exist.
+
+To check the run configuration tags, you will need a valid framework instance of ``APE``, 
+because the run configuration setup is based on a valid domain.
+
+.. tabs::
+
+    .. tab:: Java
+
+        .. code-block:: java
+
+            JSONObject config = ..;
+            config.put("max_solutions", "-10");
+
+            ValidationResults results = APECoreConfig.validate(config);
+            System.out.println("Core configuration file is correct: " + results.success());
+
+            APE framework = new APE(config);
+
+            results = APERunConfig.validate(config, framework.getDomainSetup());
+            System.out.println("Run configuration file is correct: " + results.success());
+
+            for(ValidationResult result : results.getFails()){
+                System.out.println(result.getTag() + ": " + result.getRuleDescription());
+            }
+    
+    .. tab:: Output
+
+        .. code-block:: shell
+
+            Core configuration file is correct: true
+            Run configuration file is correct: false
+            max_solutions: The maximum number of generated solutions should be greater or equal to 0.
+
+To make things easier, you could also call ``APE`` statically 
+to check both the run and core configuration setup.
+
+.. tabs::
+
+    .. tab:: Java
+
+        .. code-block:: java
+
+            JSONObject config = ..;
+            config.put("max_solutions", "-10");
+
+            ValidationResults results = APE.validate(config);
+            System.out.println("Configuration file is correct: " + results.success());
+        
+            for(ValidationResult result : results.getFails()){
+                System.out.println(result.getTag() + ": " + result.getRuleDescription());
+            }
+    
+    .. tab:: Output
+
+        .. code-block:: shell
+
+            Configuration file is correct: false
+            max_solutions: The maximum number of generated solutions should be greater or equal to 0.
