@@ -1,5 +1,5 @@
 APE Docs
-==========================
+========
 
 .. attention:: This is the documentation for the development (master) branch.
                Looking for the documentation of the current **stable** version?
@@ -26,6 +26,8 @@ Links
 
 Contents
 ========
+
+.. example: docs/basics/ape-introduction references to ./docs/basics/ape-introduction.rst
 
 .. toctree::
    :maxdepth: 3

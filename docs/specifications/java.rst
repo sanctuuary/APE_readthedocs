@@ -67,8 +67,8 @@ APE as a Web plug-in
 
 .. note::
     The following documentation is for APE **1.0.2**, which will be released soon.
-    If you cannot wait to get started with this part, use :download:`APE-1.0.2_7704eb-executable.jar <../../files/APE-1.0.2_7704eb-executable.jar>` 
-    for now, generated from `this <https://github.com/sanctuuary/APE/tree/7704ebaaa460cfddee238851aefe9f92e6e5714a>`_ commit.
+    If you cannot wait to get started with this part, use :download:`APE-1.0.2_0e3633-executable.jar <../../files/APE-1.0.2_0e3633-executable.jar>` 
+    for now, generated from `this <https://github.com/sanctuuary/APE/tree/0e36337558957595d14fc466f5d3a78c110e180d>`_ commit.
 
 
 Field info
@@ -168,8 +168,6 @@ Request information about the configuration fields using the APEConfigTag.Info s
 
 Evaluating an input value 
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-(not in ``APE-1.0.2_7704eb-executable.jar`` yet)
 
 .. code-block:: java
 
