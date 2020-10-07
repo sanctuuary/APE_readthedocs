@@ -27,21 +27,21 @@ In order to use the APE library from the command line, simply run the ``APE-<ver
 
 
 As an example, if you would download the 
-`APE-1.0.1-executable.jar <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/1.0.1/APE-1.0.1-executable.jar>`_ 
+`APE-1.0.2-executable.jar <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/1.0.2/APE-1.0.2-executable.jar>`_ 
 to the root of APE_UseCases repository on your local machine, 
 you could run this demo by executing the following command:
 
 .. code-block:: shell
 
     cd ~/git/APE_UseCases
-    java -jar APE-1.0.1-executable.jar ImageMagick/Example1/config.json
+    java -jar APE-1.0.2-executable.jar ImageMagick/Example1/config.json
 
 The results of the synthesis would be:
 
 .. code-block:: shell
 
-    ImageMagick/Example1/sat_solutions.txt - First 100 candidate solutions in textual format
-    ImageMagick/Example1/Workflows/        - Data-flow figures corresponding to the first solution (config.json specifies that only 1 solution should be found)
+    ImageMagick/Example1/solutions.txt - First 100 candidate solutions in textual format
+    ImageMagick/Example1/Figures/        - Data-flow figures corresponding to the first solution (config.json specifies that only 1 solution should be found)
     ImageMagick/Example1/Implementations/  - Executable shell scripts corresponding to the first solution
 
 Domain Model
@@ -110,7 +110,7 @@ At least one implemented tool of the abstract class `Borders` must be used in th
             {
                 "constraintid": "use_m",
                 "parameters": [
-                    ["Borders"]
+                    { "Tool" : ["Borders"]}
                 ]
             }
         ]
