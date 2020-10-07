@@ -40,9 +40,9 @@ The results of the synthesis would be:
 
 .. code-block:: shell
 
-    MassSpectometry/No1/sat_solutions.txt - First 100 candidate solutions in textual format
+    MassSpectometry/No1/solutions.txt - First 100 candidate solutions in textual format
     MassSpectometry/No1/Figures/          - Data-flow figures corresponding to the first 10 solutions
-    MassSpectometry/No1/Implementations/  - Executable shell scripts corresponding to the first 6 solutions
+    MassSpectometry/No1/Executables/  - Executable shell scripts corresponding to the first 6 solutions
 
 .. [1] Magnus Palmblad, Anna-Lena Lamprecht, Jon Ison, Veit Schwämmle, 
        Automated workflow composition in mass spectrometry-based proteomics, 
