@@ -71,9 +71,9 @@ The results of the synthesis would be:
 
 .. code-block:: shell
 
-	GeoGMT/E0/sat_solutions.txt - First 100 candidate solutions in textual format
+	GeoGMT/E0/solutions.txt - First 100 candidate solutions in textual format
 	GeoGMT/E0/Figures/          - Data-flow figures corresponding to the first 10 solutions
-	GeoGMT/E0/Implementations/  - Executable shell scripts corresponding to the first 6 solutions
+	GeoGMT/E0/Executables/  - Executable shell scripts corresponding to the first 6 solutions
 
 
 E1 - Additional Constraints
