@@ -26,7 +26,7 @@ Date        Version  Download
                      `javadoc <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/1.0.1/APE-1.0.1-javadoc.jar>`__,
                      `sources <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/1.0.1/APE-1.0.1-sources.jar>`__
 ----------  -------  --------
-??-??-2020  1.0.2_   `jar <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/1.0.2/APE-1.0.2.jar>`__,
+07-10-2020  1.0.2_   `jar <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/1.0.2/APE-1.0.2.jar>`__,
                      `executable <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/1.0.2/APE-1.0.2-executable.jar>`__,
                      `javadoc <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/1.0.2/APE-1.0.2-javadoc.jar>`__,
                      `sources <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/1.0.2/APE-1.0.2-sources.jar>`__
@@ -46,7 +46,7 @@ To add a dependency on APE, use the following:
             <dependency>
                 <groupId>io.github.sanctuuary</groupId>
                 <artifactId>APE</artifactId>
-                <version>1.0.1</version>
+                <version>1.0.2</version>
             </dependency>
 
     .. tab:: Gradle
@@ -54,14 +54,14 @@ To add a dependency on APE, use the following:
         .. code-block:: bash
 
             // https://mvnrepository.com/artifact/io.github.sanctuuary/APE
-            compile group: 'io.github.sanctuuary', name: 'APE', version: '1.0.1'
+            compile group: 'io.github.sanctuuary', name: 'APE', version: '1.0.2'
 
     .. tab:: Ivy
 
         .. code-block:: xml
 
             <!-- https://mvnrepository.com/artifact/io.github.sanctuuary/APE -->
-            <dependency org="io.github.sanctuuary" name="APE" rev="1.0.1"/>
+            <dependency org="io.github.sanctuuary" name="APE" rev="1.0.2"/>
 
 .. note:: 
     For information regarding dependencies (SBT, Grape, Buildr etc.), we refer to the `APE maven repository 
