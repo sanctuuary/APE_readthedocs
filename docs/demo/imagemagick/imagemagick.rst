@@ -42,7 +42,7 @@ The results of the synthesis would be:
 
     ImageMagick/Example1/solutions.txt - First 100 candidate solutions in textual format
     ImageMagick/Example1/Figures/        - Data-flow figures corresponding to the first solution (config.json specifies that only 1 solution should be found)
-    ImageMagick/Example1/Implementations/  - Executable shell scripts corresponding to the first solution
+    ImageMagick/Example1/Executables/  - Executable shell scripts corresponding to the first solution
 
 Domain Model
 ^^^^^^^^^^^^
