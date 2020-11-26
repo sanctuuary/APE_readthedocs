@@ -21,19 +21,6 @@ steps. Some of them are given here for demonstration:
   with additional constraints enforcing better map 
   annotations.
 
-Domain Model
-^^^^^^^^^^^^
-Tool Taxonomy
-~~~~~~~~~~~~~
-.. image:: geo_gmt_tools.png
-    :width: 100%
-
-Type Taxonomy
-~~~~~~~~~~~~~
-.. image:: geo_gmt_types.png
-    :width: 100%
-
-|
 
 E0 - Initial Workflow
 ^^^^^^^^^^^^^^^^^^^^^
@@ -85,6 +72,20 @@ the domain [1]_.
 
     cd ~/git/APE_UseCases
     java -jar APE-<version>.jar GeoGMT/E1/ape.configuration
+
+Domain Model
+^^^^^^^^^^^^
+Tool Taxonomy
+~~~~~~~~~~~~~
+.. image:: geo_gmt_tools.png
+    :width: 100%
+
+Type Taxonomy
+~~~~~~~~~~~~~
+.. image:: geo_gmt_types.png
+    :width: 100%
+
+|
 
 References
 ^^^^^^^^^^
