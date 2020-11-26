@@ -2,8 +2,8 @@ Overview
 ========
 
 The use cases aim to describe the domain knowledge that has to be 
-provided, comprising `Domain ontology <../../specifications/setup.html#domain-model>`_ and 
-`Tool annotations <../../specifications/setup.html#tool-annotations-file>`_).
+provided, comprising `Domain ontology <../specifications/setup.html#domain-model>`_ and 
+`Tool annotations <../specifications/setup.html#tool-annotations>`_).
 
 Each of the uses cases represent a different scenario:
 
