@@ -26,7 +26,7 @@ it can also be seen as *domain model configuration*, as it includes the informat
 domain ontology and tool annotations. Once the framework is initialized, the user can run APE by 
 providing a **run configuration**.
 
-The **run configuration** (2,3) contains all the information needed to execute the workflow synthesis and 
+The **run configuration** (2) contains all the information needed to execute the workflow synthesis and 
 present the results to the user. This information includes the workflow specification (workflow inputs/ 
 outputs and workflow constraints) and the execution parameters (such as path to the directory where 
 the solutions will be generated, number of solutions needed, etc.).
