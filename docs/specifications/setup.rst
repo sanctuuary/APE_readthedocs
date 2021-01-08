@@ -57,6 +57,10 @@ The core configuration is structured as follows:
 +-----------------------------------+------------------------------------------------------------------+
 | ``tool_annotations_path``         | Path to the JSON file that contains basic tool annotations.      |
 +-----------------------------------+------------------------------------------------------------------+
+| ``strict_tool_annotations``       | True if the tool taxonomy annotation has strict interpretation   |
+|                                   | where the inheritance has to be strictly specified, false if we  |
+|                                   | should concider all posible data traces (gives more solutions).  |
++-----------------------------------+------------------------------------------------------------------+
 
 JSON example:
 
