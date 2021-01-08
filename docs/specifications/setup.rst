@@ -125,7 +125,10 @@ The run configuration is structured as follows:
 |                                   |                                                  |                   |
 |                                   | generated.                                       |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``tool_seq_repeat``               | TODO                                             | True              |
+| ``tool_seq_repeat``               | True if multiple solutions can comprise the      | True              |
+|                                   | same sequence of tools                           |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
+| ``timeout(sec)``		    | Timeout for the synthesis run (in seconds)       | 300               |
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``shared_memory``                 | True in a case of shared, memory structure,      | True              |
 |                                   |                                                  |                   |
