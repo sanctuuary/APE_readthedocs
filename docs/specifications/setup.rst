@@ -134,12 +134,6 @@ The run configuration is structured as follows:
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``timeout(sec)``		    | Timeout for the synthesis run (in seconds)       | 300               |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``shared_memory``                 | True in a case of shared, memory structure,      | True              |
-|                                   |                                                  |                   |
-|                                   | false if the message passing structure should    |                   |
-|                                   |                                                  |                   |
-|                                   | be used.                                         |                   |
-+-----------------------------------+--------------------------------------------------+-------------------+
 | ``debug_mode``                    | True for debug command line output               | False             |
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``use_workflow_input``            | ``ALL`` if all the workflow inputs have to be    | ONE               |
@@ -186,7 +180,6 @@ JSON example:
       "number_of_execution_scripts": "0",
       "number_of_generated_graphs": "5",
       "tool_seq_repeat": "true",
-      "shared_memory": "true",
       "debug_mode": "false",
       "use_workflow_input": "all",
       "use_all_generated_data": "all",
