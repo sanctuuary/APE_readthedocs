@@ -142,11 +142,11 @@ The run configuration is structured as follows:
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``debug_mode``                    | True for debug command line output               | False             |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``use_workflow_input``            | ALL' if all the workflow inputs have to be       | ONE               |
+| ``use_workflow_input``            | ``ALL`` if all the workflow inputs have to be    | ONE               |
 |                                   |                                                  |                   |
-|                                   | used,'ONE' if one of the workflow inputs         |                   |
+|                                   | used,``ONE`` if one of the workflow inputs       |                   |
 |                                   |                                                  |                   |
-|                                   | should be used or 'NONE' if none of the          |                   |
+|                                   | should be used or ``NONE`` if none of the        |                   |
 |                                   |                                                  |                   |
 |                                   | workflow inputs has to be used.                  |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
