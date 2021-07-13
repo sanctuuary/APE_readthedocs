@@ -129,6 +129,10 @@ The run configuration is structured as follows:
 |                                   |                                                  |                   |
 |                                   | generated.                                       |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
+| ``number_of_cwl_files``           | Number of CWLworkflow files that will be         | 0                 |
+|                                   |                                                  |                   |
+|                                   | generated.                                       |                   |
++-----------------------------------+--------------------------------------------------+-------------------+
 | ``tool_seq_repeat``               | True if multiple solutions can comprise the      | True              |
 |                                   | same sequence of tools                           |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
