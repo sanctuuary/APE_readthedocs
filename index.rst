@@ -20,9 +20,9 @@ APE Docs
 Links
 =====
 
+- `APE Web <https://ape.science.uu.nl/>`_
 - `APE repository <https://github.com/sanctuuary/APE>`_
 - `Use cases <https://github.com/sanctuuary/APE_UseCases>`_
-- `Burke docker <https://github.com/sanctuuary/Burke_Docker>`_
 
 Contents
 ========
