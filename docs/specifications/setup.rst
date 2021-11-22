@@ -42,25 +42,27 @@ Core configuration
 
 The core configuration is structured as follows:
 
-+-----------------------------------+------------------------------------------------------------------+
-| Tag                               | Description                                                      |
-+===================================+==================================================================+
-| ``ontology_path``                 | Path to the taxonomy file.                                       |
-+-----------------------------------+------------------------------------------------------------------+
-| ``ontologyPrexifIRI``             | Absolute IRI to identify the elements in the taxonomy file.      |
-+-----------------------------------+------------------------------------------------------------------+
-| ``toolsTaxonomyRoot``             | Name of the root tool class.                                     |
-+-----------------------------------+------------------------------------------------------------------+
-| ``dataDimensionsTaxonomyRoots``   | List of roots within the data taxonomy, each sub root represents |
-|                                   |                                                                  |
-|                                   | data dimension (e.g. data format, data type, etc.).              |
-+-----------------------------------+------------------------------------------------------------------+
-| ``tool_annotations_path``         | Path to the JSON file that contains basic tool annotations.      |
-+-----------------------------------+------------------------------------------------------------------+
-| ``strict_tool_annotations``       | True if the tool taxonomy annotation has strict interpretation   |
-|                                   | where the inheritance has to be strictly specified, false if we  |
-|                                   | should concider all posible data traces (gives more solutions).  |
-+-----------------------------------+------------------------------------------------------------------+
++---------------------------------+----------+------------------------------------------------------------------+
+| Tag                             | Required | Description                                                      |
++=================================+==========+==================================================================+
+| ``ontology_path``               | Yes      | Path to the taxonomy file.                                       |
++---------------------------------+----------+------------------------------------------------------------------+
+| ``ontologyPrexifIRI``           | Yes      | Absolute IRI to identify the elements in the taxonomy file.      |
++---------------------------------+----------+------------------------------------------------------------------+
+| ``toolsTaxonomyRoot``           | Yes      | Name of the root tool class.                                     |
++---------------------------------+----------+------------------------------------------------------------------+
+| ``dataDimensionsTaxonomyRoots`` | Yes      | List of roots within the data taxonomy, each sub root represents |
+|                                 |          |                                                                  |
+|                                 |          | data dimension (e.g. data format, data type, etc.).              |
++---------------------------------+----------+------------------------------------------------------------------+
+| ``tool_annotations_path``       | Yes      | Path to the JSON file that contains basic tool annotations.      |
++---------------------------------+----------+------------------------------------------------------------------+
+| ``strict_tool_annotations``     | Yes      | True if the tool taxonomy annotation has strict interpretation   |
+|                                 |          | where the inheritance has to be strictly specified, false if we  |
+|                                 |          | should consider all possible data traces (gives more solutions). |
++---------------------------------+----------+------------------------------------------------------------------+
+| ``cwl_annotations_path``        | No       | Path to the YAML file that contains CWL tool annotations.        |
++---------------------------------+----------+------------------------------------------------------------------+
 
 JSON example:
 
@@ -72,6 +74,7 @@ JSON example:
       "toolsTaxonomyRoot": "ToolsTaxonomy",
       "dataDimensionsTaxonomyRoots": ["TypesTaxonomy"],
       "tool_annotations_path": "./GeoGMT/tool_annotations.json",
+      "cwl_annotations_path": "./GeoGTM/cwl_annotations.yaml",
    }
 
 
@@ -334,7 +337,7 @@ the tools as well as the input/output annotated in the configuration file.
 Code Implementation
 ~~~~~~~~~~~~~~~~~~~
 
-The code specified in the tool annotation could be used to constuct a 
+The code specified in the tool annotation could be used to construct a 
 script that executes the workflow. APE keeps track of the naming of 
 the in- and output variables from annotated tools. The ``@output[0]`` references to 
 the variable name of the first input specified in the 
@@ -368,6 +371,185 @@ or the output of a previous tool.
 
    node003 = $node001 + $node002
 
+CWL Annotations
+^^^^^^^^^^^^^^^^^^
+
+The CWL annotations file specifies the the CWL code related to each tool
+to allow APE to generate executable CWL workflow files.
+
+Structure
+~~~~~~~~~
+
+The file has the following structure:
+
+.. code-block:: shell
+
+   +ID:
+     inputs:
+       +input_definition
+     ?implementation:
+       code
+
+where (+) requires 1 or more, (?) requires 0 or 1, and no sign requires existence of exactly 1 such tag.
+
++------------------+----------------------------------------------------------------------------------------------------+
+| Tag              | Description                                                                                        |
++==================+====================================================================================================+
+| ID               | unique identifier of the tool                                                                      |
++------------------+----------------------------------------------------------------------------------------------------+
+| input_definition | CWL `WorkflowInputParameter <https://www.commonwl.org/v1.1/Workflow.html#WorkflowInputParameter>`_ |
++------------------+----------------------------------------------------------------------------------------------------+
+| code             | CWL `WorkflowStep <https://www.commonwl.org/v1.1/Workflow.html#WorkflowStep>`_                     |
++------------------+----------------------------------------------------------------------------------------------------+
+
+Example
+~~~~~~~
+
+The following example annotates the tool ``black_white``,
+which takes any ``Image`` (Type) of any Format and outputs a grayscale image.
+As a regular shell command, it would look like this:
+
+.. code-block:: shell
+
+   convert $input0 -colorspace Gray out.png
+
+This is the CWL annotation representing the command:
+
+.. code-block:: yaml
+
+   black_white:
+      inputs:
+      - \@image\@: File
+      implementation:
+        black_white:
+          in:
+            image: \@input[0]
+          out: [image_out]
+          run:
+            class: CommandLineTool
+            baseCommand: convert
+            arguments:
+            - valueFrom: -colorspace Gray
+              position: 1
+              shellQuote: False
+            - valueFrom: out.png
+              position: 2
+            inputs:
+              image:
+                type: File
+                inputBinding:
+                  position: 0
+              outputs:
+                image_out:
+                  type: File
+                  outputBinding:
+                    glob: out.png
+
+Note that each input name should be surrounded by ``\@`` to tell APE this is the name.
+APE will generate unique names for the step inputs in the workflow and link the workflow inputs.
+
+Multiple steps in one tool
+""""""""""""""""""""""""""
+
+If you want to perform multiple steps in one tool,
+you can simply define multiple CWL steps in the implementation section of the annotation.
+For example, like the ``add_small_border`` tool:
+
+.. code-block:: shell
+
+   height=$(($(identify -format '%h' $input0)/20))
+   convert $input0 -bordercolor $input1 -border $height out.png
+
+This tool first calculates the height of the image in the step ``calc_height``,
+and then uses it to set the size of the border it gives to the image in step ``add_small_border``.
+``$input0`` represents the input image, and ``$input1`` represents the color of the border.
+
+.. code-block:: yaml
+   
+   add_small_border:
+     inputs:
+       - \@image\@: File
+       - \@color\@: string
+     implementation:
+       # Step 1
+       calc_height:
+         in:
+           image: \@input[0]
+         out: [height]
+         run:
+           class: CommandLineTool
+           baseCommand: identify
+           stdout: out
+           inputs:
+             image:
+               type: File
+               inputBinding:
+                 position: 0
+                 prefix: -format '%h'
+                 shellQuote: False
+           outputs:
+             height:
+               type: int
+               outputBinding:
+                 glob: out
+                 loadContents: true
+                 outputEval: $(self[0].contents / 20)
+       # Step 2
+       add_small_border:
+         in:
+           image: \@input[0]
+           color: \@input[1]
+           height: calc_height/height
+         out: [image_out]
+         run:
+           class: CommandLineTool
+           baseCommand: convert
+           arguments:
+           - valueFrom: out.png
+             position: 3
+           inputs:
+             image:
+               type: File
+               inputBinding:
+                 position: 0
+             color:
+               type: string
+               inputBinding:
+                 position: 1
+                 prefix: -bordercolor
+             height:
+               type: int
+               inputBinding:
+                 position: 2
+                 prefix: -border
+             outputs:
+               image_out:
+                 type: File
+                 outputBinding:
+                   glob: out.png
+
+Note that each input is numbered. Because the ``image`` input is listed first and ``color`` second,
+they are represented by ``\@input[0]`` and ``\input[1]`` respectively.
+It is important these inputs are placed in the same order as the inputs in the tool annotations file.
+
+Also note that you can put the ``\@input`` bindings wherever you want, and as many times as you want.
+APE will automatically fill them in later.
+
+Additional workflow input parameters
+""""""""""""""""""""""""""""""""""""
+
+Sometimes tools might only want to read some input parameter.
+To implement such a tool in the CWL annotations, add an annotation which does not have an implementation.
+For example, in ImageMagick there is a tool ``generate_color``.
+This tool only reads a color name given by the user, which can be used by other tools later.
+
+.. code-block:: yaml
+
+   generate_color:
+     inputs:
+     - \@color\@:
+         type: string
+         default: Cyan
 
 Constraints File
 ^^^^^^^^^^^^^^^^
@@ -456,4 +638,3 @@ ID             Description
 
                then do not generate type ``${parameter_2}`` subsequently.
 =============  ===========
-
