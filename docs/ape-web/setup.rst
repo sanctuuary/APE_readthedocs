@@ -26,7 +26,7 @@ If you wish to change the port of the front-end, or the database username and pa
 go to the root directory of the project and copy the ``.env`` file to a new file named ``.env.local``.
 Change the values as needed.
 
-.. note:: Make sure the ``FE_PORT`` in the environment file in the root directory matches the port in the environment file from the front-end.
+.. note:: Make sure the ``FE_PORT`` in the environment file in the root directory matches the port of ``NEXT_PUBLIC_FE_URL`` in the environment file from the front-end.
 
 Docker setup
 ^^^^^^^^^^^^
@@ -34,13 +34,11 @@ Docker setup
 Running the container
 ~~~~~~~~~~~~~~~~~~~~~
 
-You can now start APE Web by running:
+After configuring APE Web, you can start APE Web by running:
 
 .. code-block:: shell
 
   docker-compose up -d
-
-You should now have a running instance of APE Web.
 
 Creating the first administrator account (Docker)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
