@@ -58,4 +58,5 @@ Contents
    :maxdepth: 3
    :caption: APE Web
 
+   docs/ape-web/introduction
    docs/ape-web/setup
