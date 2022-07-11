@@ -65,10 +65,11 @@ Maven dependencies
 9. `ANTLR 4 Runtime <https://mvnrepository.com/artifact/org.antlr/antlr4-runtime>`_ - BSD
 10. `SnakeYAML <https://mvnrepository.com/artifact/org.yaml/snakeyaml>`_ - Apache 2.0
 
-The APE team
+Contributors
 ^^^^^^^^^^^^
 * Vedran Kasalica (`v.kasalica@uu.nl <mailto:v.kasalica@uu.nl>`_), lead developer
 * Maurin Voshol, student developer
+* Koen Haverkort, student developer
 * Anna-Lena Lamprecht (`a.l.lamprecht@uu.nl <mailto:a.l.lamprecht@uu.nl>`_), project initiator and principal investigator
 
 References
