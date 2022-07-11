@@ -585,56 +585,66 @@ The constraint is interpreted as:
 
 All pre-defined constraints that can be used:
 
-=============  ===========
-ID             Description
-=============  ===========
-``ite_m``      If we use module ``${parameter_1}``, 
+====================  ===========
+ID                    Description
+====================  ===========
+``ite_m``             If we use module ``${parameter_1}``, 
 
-               then use ``${parameter_2}`` subsequently.
--------------  -----------
-``itn_m``      If we use module ``${parameter_1}``, 
+                      then use ``${parameter_2}`` subsequently.
+--------------------  -----------
+``itn_m``             If we use module ``${parameter_1}``, 
 
-               then do not use ``${parameter_2}`` subsequently.
--------------  -----------
-``depend_m``   If we use module ``${parameter_1}``, 
+                      then do not use ``${parameter_2}`` subsequently.
+--------------------  -----------
+``depend_m``          If we use module ``${parameter_1}``, 
 
-               then we must have used ``${parameter_2}`` prior to it.
--------------  -----------
-``next_m``     If we use module ``${parameter_1}``, 
+                      then we must have used ``${parameter_2}`` prior to it.
+--------------------  -----------
+``next_m``            If we use module ``${parameter_1}``, 
 
-               then use ``${parameter_2}`` as a next module in the sequence.
--------------  -----------
-``prev_m``     If we use module ``${parameter_1}``, 
+                      then use ``${parameter_2}`` as a next module in the sequence.
+--------------------  -----------
+``prev_m``            If we use module ``${parameter_1}``, 
 
-               then we must have used ``${parameter_2}`` as a previous module in the sequence.
--------------  -----------
-``use_m``      Use module ``${parameter_1}`` in the solution.
--------------  -----------
-``nuse_m``     Do not use module ``${parameter_1}`` in the solution.
--------------  -----------
-``last_m``     Use ``${parameter_1}`` as last module in the solution.
--------------  -----------
-``use_t``      Use type ``${parameter_1}`` in the solution.
--------------  -----------
-``gen_t``      Generate type ``${parameter_1}`` in the solution.
--------------  -----------
-``nuse_t``     Do not use type ``${parameter_1}`` in the solution.
--------------  -----------
-``ngen_t``     Do not generate type ``${parameter_1}`` in the solution.
--------------  -----------
-``use_ite_t``  If we have used data type ``${parameter_1}``, 
+                      then we must have used ``${parameter_2}`` as a previous module in the sequence.
+--------------------  -----------
+``use_m``             Use module ``${parameter_1}`` in the solution.
+--------------------  -----------
+``nuse_m``            Do not use module ``${parameter_1}`` in the solution.
+--------------------  -----------
+``last_m``            Use ``${parameter_1}`` as last module in the solution.
+--------------------  -----------
+``use_t``             Use type ``${parameter_1}`` in the solution.
+--------------------  -----------
+``gen_t``             Generate type ``${parameter_1}`` in the solution.
+--------------------  -----------
+``nuse_t``            Do not use type ``${parameter_1}`` in the solution.
+--------------------  -----------
+``ngen_t``            Do not generate type ``${parameter_1}`` in the solution.
+--------------------  -----------
+``use_ite_t``         If we have used data type ``${parameter_1}``, 
 
-               then use type ``${parameter_2}`` subsequently.
--------------  -----------
-``gen_ite_t``  If we have generated data type ``${parameter_1}``, 
+                      then use type ``${parameter_2}`` subsequently.
+--------------------  -----------
+``gen_ite_t``         If we have generated data type ``${parameter_1}``, 
 
-               then generate type ``${parameter_2}`` subsequently.
--------------  -----------
-``use_itn_t``  If we have used data type ``${parameter_1}``, 
+                      then generate type ``${parameter_2}`` subsequently.
+--------------------  -----------
+``use_itn_t``         If we have used data type ``${parameter_1}``, 
 
-               then do not use type ``${parameter_2}`` subsequently.
--------------  -----------
-``gen_itn_t``  If we have generated data type ``${parameter_1}``, 
+                      then do not use type ``${parameter_2}`` subsequently.
+--------------------  -----------
+``gen_itn_t``         If we have generated data type ``${parameter_1}``, 
 
-               then do not generate type ``${parameter_2}`` subsequently.
-=============  ===========
+                      then do not generate type ``${parameter_2}`` subsequently.
+--------------------  -----------
+``operation_input``   Use the operation with an input of the given type.
+--------------------  -----------
+``operation_output``  Use the operation to generate an output of the given type.
+--------------------  -----------
+``connected_op``      The 1st operation should generate an output used bt the 2nd operation.
+--------------------  -----------
+``not_connected_op``  The 1st operation should never generate an output sued by the 2nd operation.
+--------------------  -----------
+``not_repeat_op``     No operation that belongs to the subtree should be repeated over.
+====================  ===========
