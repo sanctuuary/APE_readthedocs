@@ -47,7 +47,7 @@ The core configuration is structured as follows:
 +=================================+==========+==================================================================+
 | ``ontology_path``               | Yes      | Path to the taxonomy file.                                       |
 +---------------------------------+----------+------------------------------------------------------------------+
-| ``ontologyPrexifIRI``           | Yes      | Absolute IRI to identify the elements in the taxonomy file.      |
+| ``ontologyPrefixIRI``           | Yes      | Absolute IRI to identify the elements in the taxonomy file.      |
 +---------------------------------+----------+------------------------------------------------------------------+
 | ``toolsTaxonomyRoot``           | Yes      | Name of the root tool class.                                     |
 +---------------------------------+----------+------------------------------------------------------------------+
@@ -70,7 +70,7 @@ JSON example:
 
    {
       "ontology_path": "./GeoGMT/GMT_UseCase_taxonomy.owl",
-      "ontologyPrexifIRI": "http://www.co-ode.org/ontologies/ont.owl#",
+      "ontologyPrefixIRI": "http://www.co-ode.org/ontologies/ont.owl#",
       "toolsTaxonomyRoot": "ToolsTaxonomy",
       "dataDimensionsTaxonomyRoots": ["TypesTaxonomy"],
       "tool_annotations_path": "./GeoGMT/tool_annotations.json",
@@ -122,7 +122,7 @@ The run configuration is structured as follows:
 |                                   |                                                  |                   |
 |                                   | from which  solutions should be searched.        |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``max_solutions``                 | Max number of solutions that would be returned.  |                   |
+| ``solutions``                     | The number of solutions that would be returned.  |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``number_of_execution_scripts``   | Number of executable scripts that will be        | 0                 |
 |                                   |                                                  |                   |
@@ -183,7 +183,7 @@ JSON example:
          "min": 1, 
          "max": 10 
       },
-      "max_solutions": "10",
+      "solutions": "10",
       "number_of_execution_scripts": "0",
       "number_of_generated_graphs": "5",
       "tool_seq_repeat": "true",

@@ -311,7 +311,7 @@ This results in the following (partial) JSON:
                 {
                     "description": "",
                     "optional": false,
-                    "tag": "max_solutions",
+                    "tag": "solutions",
                     "label": "Maximum number of solutions",
                     "type": "INTEGER",
                     "constraints": {
@@ -419,7 +419,7 @@ not checked as it is not part of the core configuration setup.
 
             JSONObject config = ..;
             config.put("tool_annotations_path", "does/not/exist.json");
-            config.put("max_solutions", "-10");
+            config.put("solutions", "-10");
 
             ValidationResults results = APECoreConfig.validate(config);
             System.out.println("Configuration file is correct: " + results.success());
@@ -445,7 +445,7 @@ because the run configuration setup is based on a valid domain.
         .. code-block:: java
 
             JSONObject config = ..;
-            config.put("max_solutions", "-10");
+            config.put("solutions", "-10");
 
             ValidationResults results = APECoreConfig.validate(config);
             System.out.println("Core configuration file is correct: " + results.success());
@@ -465,7 +465,7 @@ because the run configuration setup is based on a valid domain.
 
             Core configuration file is correct: true
             Run configuration file is correct: false
-            max_solutions: The maximum number of generated solutions should be greater or equal to 0.
+            solutions: The maximum number of generated solutions should be greater or equal to 0.
 
 To make things easier, you could also call ``APE`` statically 
 to check both the run and core configuration setup.
@@ -477,7 +477,7 @@ to check both the run and core configuration setup.
         .. code-block:: java
 
             JSONObject config = ..;
-            config.put("max_solutions", "-10");
+            config.put("solutions", "-10");
 
             ValidationResults results = APE.validate(config);
             System.out.println("Configuration file is correct: " + results.success());
@@ -491,4 +491,4 @@ to check both the run and core configuration setup.
         .. code-block:: shell
 
             Configuration file is correct: false
-            max_solutions: The maximum number of generated solutions should be greater or equal to 0.
+            solutions: The maximum number of generated solutions should be greater or equal to 0.
