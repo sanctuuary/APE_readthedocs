@@ -53,3 +53,9 @@ Contents
    docs/demo/imagemagick/imagemagick
    docs/demo/geo_gmt/geo_gmt
    docs/demo/massspectrometry/massspectrometry
+
+.. toctree::
+   :maxdepth: 3
+   :caption: APE Web
+
+   docs/ape-web/setup
