@@ -55,7 +55,7 @@ APE is licensed under the `Apache 2.0 <https://github.com/sanctuuary/APE/blob/ma
 Maven dependencies
 ^^^^^^^^^^^^^^^^^^
 1. `OWL API <https://mvnrepository.com/artifact/net.sourceforge.owlapi/owlapi-distribution>`_ - LGPL or Apache 2.0
-2. `SAT4J <https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core>`_ - EPL or GNu LGPL
+2. `SAT4J <https://mvnrepository.com/artifact/org.sat4j/org.sat4j.core>`_ - EPL or GNU LGPL
 3. `apache-common-lang <https://mvnrepository.com/artifact/org.apache.commons/commons-lang3>`_ - Apache 2.0
 4. `Apache Log4j Core <https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core>`_ - Apache 2.0
 5. `graphviz-java <https://mvnrepository.com/artifact/guru.nidi/graphviz-java>`_ - Apache 2.0
