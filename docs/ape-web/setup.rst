@@ -13,11 +13,8 @@ To set up APE Web, you need to have either:
 
 We recommend using Docker to set up APE Web.
 
-Docker setup
-^^^^^^^^^^^^
-
 Configuration
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
 First, copy the ``.env`` file in the front-end directory to a new file named ``.env.production.local``.
 In this file, change any of the URL configurations as necessary.
@@ -28,6 +25,11 @@ If APE Web runs behind an Apache or Nginx proxy, these can most likely be kept a
 If you wish to change the port of the front-end, or the database username and password, you need to edit the Docker compose environment file:
 go to the root directory of the project and copy the ``.env`` file to a new file named ``.env.local``.
 Change the values as needed.
+
+.. note:: Make sure the ``FE_PORT`` in the environment file in the root directory matches the port in the environment file from the front-end.
+
+Docker setup
+^^^^^^^^^^^^
 
 Running the container
 ~~~~~~~~~~~~~~~~~~~~~
@@ -57,8 +59,6 @@ After the script is done, the user with the given e-mail address will be an admi
 
 Manual setup
 ^^^^^^^^^^^^
-
-.. note:: Before following the instructions on running each component of APE Web manually, be sure to follow the configuration steps in the "Docker setup" section.
 
 Back-end
 ~~~~~~~~
