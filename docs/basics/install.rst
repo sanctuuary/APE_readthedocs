@@ -73,7 +73,7 @@ Build APE from source (using Maven)
 .. tip::
     Building APE from source is not required to run it, as the latest stable 
     version is available at `maven repository <https://mvnrepository.com/artifact/io.github.sanctuuary/APE/latest>`_.
-    Download the exectable jar directly from `Releases <install.html#releases>`_.
+    Download the executable jar directly from `Releases <install.html#releases>`_.
 
 From the project root, simply launch
 
