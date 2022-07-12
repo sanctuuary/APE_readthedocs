@@ -648,3 +648,56 @@ ID                    Description
 --------------------  -----------
 ``not_repeat_op``     No operation that belongs to the subtree should be repeated over.
 ====================  ===========
+
+SLTLx constraints
+~~~~~~~~~~~~~~~~~
+
+SLTLx (Semantic Linear Time Temporal Logic extended) allows the user to define constraints using logical formulas.
+For example, the following constraint prevents an operation within the subtree ``operation_0004`` from using the same input twice:
+
+.. code-block:: json
+
+   {
+      "constraintid": "SLTLx",
+      "formula": "!F Exists (?x1) (<'operation_0004'(?x1,?x1;)> true)"
+   }
+
+TODO: breakdown of formula above.
+
+This second example specifies a constraint which makes sure a workflow input is used only once.
+To tell APE which inputs are not to be used twice, the workflow inputs have been labeled as "Input" in the run configuration file:
+
+.. code-block:: json
+
+   "inputs": [
+    {
+      "data_0006": ["data_9003"],
+      "format_1915": ["format_3989"],
+      "APE_label": ["Input"]
+    },
+    {
+      "data_0006": ["data_9003"],
+      "format_1915": ["format_3989"],
+      "APE_label": ["Input"]
+    },
+    {
+      "data_0006": ["data_9001"],
+      "format_1915": ["format_1929", "format_3331"],
+      "APE_label": ["Input"]
+    }
+  ],
+
+The labeled inputs can now be used in the SLTLx formula:
+
+.. code-block:: json
+
+   {
+      "constraintid": "SLTLx",
+      "formula": "! Exists (?x) ('Input'(?x) & (F <'operation_0004'(?x;)> F <'operation_0004'(?x;)> true))"
+   }
+
+TODO: breakdown of formula above.
+
+SLTLx syntax
+""""""""""""
+TODO: talk about SLTLx syntax.
