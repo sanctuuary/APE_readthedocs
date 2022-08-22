@@ -17,6 +17,7 @@ Releases
 
 .. _1.0.1: https://mvnrepository.com/artifact/io.github.sanctuuary/APE/1.0.1
 .. _1.0.2: https://mvnrepository.com/artifact/io.github.sanctuuary/APE/1.0.2
+.. _2.0.1: https://mvnrepository.com/artifact/io.github.sanctuuary/APE/2.0.1
 
 ==========  =======  ========
 Date        Version  Download
@@ -30,6 +31,11 @@ Date        Version  Download
                      `executable <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/1.0.2/APE-1.0.2-executable.jar>`__,
                      `javadoc <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/1.0.2/APE-1.0.2-javadoc.jar>`__,
                      `sources <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/1.0.2/APE-1.0.2-sources.jar>`__
+----------  -------  --------
+02-6-2022   2.0.1_   `jar <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/2.0.1/APE-2.0.1.jar>`__,
+                     `executable <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/2.0.1/APE-2.0.1-executable.jar>`__,
+                     `javadoc <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/2.0.1/APE-2.0.1-javadoc.jar>`__,
+                     `sources <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/2.0.1/APE-2.0.1-sources.jar>`__
 ==========  =======  ========
 
 Add APE to your project
