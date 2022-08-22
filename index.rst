@@ -1,10 +1,6 @@
 APE Docs
 ========
 
-.. attention:: This is the documentation for the development (master) branch.
-               Looking for the documentation of the current **stable** version?
-               Have a look at `v1.0.2 <https://test-repository.readthedocs.io/en/1.0.2/>`_.
-
 .. note:: The APE team can always use your feedback and help to 
           improve the tutorials and class references. If
           you don't understand something, or cannot find what you
