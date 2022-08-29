@@ -55,15 +55,21 @@ APE is licensed under the `Apache 2.0 <https://github.com/sanctuuary/APE/blob/ma
 Maven dependencies
 ^^^^^^^^^^^^^^^^^^
 1. `OWL API <https://mvnrepository.com/artifact/net.sourceforge.owlapi/owlapi-distribution>`_ - LGPL or Apache 2.0
-2. `SAT4J <https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core>`_ - EPL or GNu LGPL
+2. `SAT4J <https://mvnrepository.com/artifact/org.sat4j/org.sat4j.core>`_ - EPL or GNU LGPL
 3. `apache-common-lang <https://mvnrepository.com/artifact/org.apache.commons/commons-lang3>`_ - Apache 2.0
-4. `graphviz-java <https://mvnrepository.com/artifact/guru.nidi/graphviz-java>`_ - Apache 2.0
-5. `org.json <https://mvnrepository.com/artifact/org.json/json>`_ - `JSON license <https://www.json.org/license.html>`_
+4. `Apache Log4j Core <https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core>`_ - Apache 2.0
+5. `graphviz-java <https://mvnrepository.com/artifact/guru.nidi/graphviz-java>`_ - Apache 2.0
+6. `org.json <https://mvnrepository.com/artifact/org.json/json>`_ - `JSON license <https://www.json.org/license.html>`_
+7. `JUnit Jupiter API <https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api>`_ - EPL 2.0
+8. `SLF4J Simple Binding <https://mvnrepository.com/artifact/org.slf4j/slf4j-simple>`_ - MIT
+9. `ANTLR 4 Runtime <https://mvnrepository.com/artifact/org.antlr/antlr4-runtime>`_ - BSD
+10. `SnakeYAML <https://mvnrepository.com/artifact/org.yaml/snakeyaml>`_ - Apache 2.0
 
-The APE team
+Contributors
 ^^^^^^^^^^^^
 * Vedran Kasalica (`v.kasalica@uu.nl <mailto:v.kasalica@uu.nl>`_), lead developer
 * Maurin Voshol, student developer
+* Koen Haverkort, student developer
 * Anna-Lena Lamprecht (`a.l.lamprecht@uu.nl <mailto:a.l.lamprecht@uu.nl>`_), project initiator and principal investigator
 
 References

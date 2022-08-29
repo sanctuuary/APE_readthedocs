@@ -36,18 +36,8 @@ The back-end is built in Kotlin, with the most important dependencies being:
 
 Contributors
 ^^^^^^^^^^^^
-This project was initially developed by students from the bachelor Computer Science at Utrecht University within the Software Project course, and students from Grafisch Lyceum Utrecht.
-
-* Silvan Eelman
-* Koen Haverkort
-* Alex Janse
-* Matthijs Rademaker
-* Megan Tjoeng
-* Inge van Dam
-* Jeroen van der Wal
-* Sem van Nieuwenhuizen
-* Rense Wolters
-* Sarrisa Wouts
+| This project was initially developed by students from the bachelor Computer Science at Utrecht University within the Software Project course, and students from Grafisch Lyceum Utrecht:
+| Silvan Eelman, Koen Haverkort, Alex Janse, Matthijs Rademaker, Megan Tjoeng, Inge van Dam, Jeroen van der Wal, Sem van Nieuwenhuizen, Rense Wolters, Sarrisa Wouts.
 
 The project was later further developed by the following contributors:
 

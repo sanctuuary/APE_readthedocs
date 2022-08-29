@@ -47,7 +47,7 @@ The core configuration is structured as follows:
 +=================================+==========+==================================================================+
 | ``ontology_path``               | Yes      | Path to the taxonomy file.                                       |
 +---------------------------------+----------+------------------------------------------------------------------+
-| ``ontologyPrexifIRI``           | Yes      | Absolute IRI to identify the elements in the taxonomy file.      |
+| ``ontologyPrefixIRI``           | Yes      | Absolute IRI to identify the elements in the taxonomy file.      |
 +---------------------------------+----------+------------------------------------------------------------------+
 | ``toolsTaxonomyRoot``           | Yes      | Name of the root tool class.                                     |
 +---------------------------------+----------+------------------------------------------------------------------+
@@ -70,7 +70,7 @@ JSON example:
 
    {
       "ontology_path": "./GeoGMT/GMT_UseCase_taxonomy.owl",
-      "ontologyPrexifIRI": "http://www.co-ode.org/ontologies/ont.owl#",
+      "ontologyPrefixIRI": "http://www.co-ode.org/ontologies/ont.owl#",
       "toolsTaxonomyRoot": "ToolsTaxonomy",
       "dataDimensionsTaxonomyRoots": ["TypesTaxonomy"],
       "tool_annotations_path": "./GeoGMT/tool_annotations.json",
@@ -122,7 +122,7 @@ The run configuration is structured as follows:
 |                                   |                                                  |                   |
 |                                   | from which  solutions should be searched.        |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``max_solutions``                 | Max number of solutions that would be returned.  |                   |
+| ``solutions``                     | The number of solutions that would be returned.  |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``number_of_execution_scripts``   | Number of executable scripts that will be        | 0                 |
 |                                   |                                                  |                   |
@@ -183,7 +183,7 @@ JSON example:
          "min": 1, 
          "max": 10 
       },
-      "max_solutions": "10",
+      "solutions": "10",
       "number_of_execution_scripts": "0",
       "number_of_generated_graphs": "5",
       "tool_seq_repeat": "true",
@@ -585,56 +585,119 @@ The constraint is interpreted as:
 
 All pre-defined constraints that can be used:
 
-=============  ===========
-ID             Description
-=============  ===========
-``ite_m``      If we use module ``${parameter_1}``, 
+====================  ===========
+ID                    Description
+====================  ===========
+``ite_m``             If we use module ``${parameter_1}``, 
 
-               then use ``${parameter_2}`` subsequently.
--------------  -----------
-``itn_m``      If we use module ``${parameter_1}``, 
+                      then use ``${parameter_2}`` subsequently.
+--------------------  -----------
+``itn_m``             If we use module ``${parameter_1}``, 
 
-               then do not use ``${parameter_2}`` subsequently.
--------------  -----------
-``depend_m``   If we use module ``${parameter_1}``, 
+                      then do not use ``${parameter_2}`` subsequently.
+--------------------  -----------
+``depend_m``          If we use module ``${parameter_1}``, 
 
-               then we must have used ``${parameter_2}`` prior to it.
--------------  -----------
-``next_m``     If we use module ``${parameter_1}``, 
+                      then we must have used ``${parameter_2}`` prior to it.
+--------------------  -----------
+``next_m``            If we use module ``${parameter_1}``, 
 
-               then use ``${parameter_2}`` as a next module in the sequence.
--------------  -----------
-``prev_m``     If we use module ``${parameter_1}``, 
+                      then use ``${parameter_2}`` as a next module in the sequence.
+--------------------  -----------
+``prev_m``            If we use module ``${parameter_1}``, 
 
-               then we must have used ``${parameter_2}`` as a previous module in the sequence.
--------------  -----------
-``use_m``      Use module ``${parameter_1}`` in the solution.
--------------  -----------
-``nuse_m``     Do not use module ``${parameter_1}`` in the solution.
--------------  -----------
-``last_m``     Use ``${parameter_1}`` as last module in the solution.
--------------  -----------
-``use_t``      Use type ``${parameter_1}`` in the solution.
--------------  -----------
-``gen_t``      Generate type ``${parameter_1}`` in the solution.
--------------  -----------
-``nuse_t``     Do not use type ``${parameter_1}`` in the solution.
--------------  -----------
-``ngen_t``     Do not generate type ``${parameter_1}`` in the solution.
--------------  -----------
-``use_ite_t``  If we have used data type ``${parameter_1}``, 
+                      then we must have used ``${parameter_2}`` as a previous module in the sequence.
+--------------------  -----------
+``use_m``             Use module ``${parameter_1}`` in the solution.
+--------------------  -----------
+``nuse_m``            Do not use module ``${parameter_1}`` in the solution.
+--------------------  -----------
+``last_m``            Use ``${parameter_1}`` as last module in the solution.
+--------------------  -----------
+``use_t``             Use type ``${parameter_1}`` in the solution.
+--------------------  -----------
+``gen_t``             Generate type ``${parameter_1}`` in the solution.
+--------------------  -----------
+``nuse_t``            Do not use type ``${parameter_1}`` in the solution.
+--------------------  -----------
+``ngen_t``            Do not generate type ``${parameter_1}`` in the solution.
+--------------------  -----------
+``use_ite_t``         If we have used data type ``${parameter_1}``, 
 
-               then use type ``${parameter_2}`` subsequently.
--------------  -----------
-``gen_ite_t``  If we have generated data type ``${parameter_1}``, 
+                      then use type ``${parameter_2}`` subsequently.
+--------------------  -----------
+``gen_ite_t``         If we have generated data type ``${parameter_1}``, 
 
-               then generate type ``${parameter_2}`` subsequently.
--------------  -----------
-``use_itn_t``  If we have used data type ``${parameter_1}``, 
+                      then generate type ``${parameter_2}`` subsequently.
+--------------------  -----------
+``use_itn_t``         If we have used data type ``${parameter_1}``, 
 
-               then do not use type ``${parameter_2}`` subsequently.
--------------  -----------
-``gen_itn_t``  If we have generated data type ``${parameter_1}``, 
+                      then do not use type ``${parameter_2}`` subsequently.
+--------------------  -----------
+``gen_itn_t``         If we have generated data type ``${parameter_1}``, 
 
-               then do not generate type ``${parameter_2}`` subsequently.
-=============  ===========
+                      then do not generate type ``${parameter_2}`` subsequently.
+--------------------  -----------
+``operation_input``   Use the operation with an input of the given type.
+--------------------  -----------
+``operation_output``  Use the operation to generate an output of the given type.
+--------------------  -----------
+``connected_op``      The 1st operation should generate an output used bt the 2nd operation.
+--------------------  -----------
+``not_connected_op``  The 1st operation should never generate an output sued by the 2nd operation.
+--------------------  -----------
+``not_repeat_op``     No operation that belongs to the subtree should be repeated over.
+====================  ===========
+
+SLTLx constraints
+~~~~~~~~~~~~~~~~~
+
+SLTLx (Semantic Linear Time Temporal Logic extended) allows the user to define constraints using logical formulas.
+For example, the following constraint prevents an operation within the subtree ``operation_0004`` from using the same input twice:
+
+.. code-block:: json
+
+   {
+      "constraintid": "SLTLx",
+      "formula": "!F Exists (?x1) (<'operation_0004'(?x1,?x1;)> true)"
+   }
+
+TODO: breakdown of formula above.
+
+This second example specifies a constraint which makes sure a workflow input is used only once.
+To tell APE which inputs are not to be used twice, the workflow inputs have been labeled as "Input" in the run configuration file:
+
+.. code-block:: json
+
+   "inputs": [
+    {
+      "data_0006": ["data_9003"],
+      "format_1915": ["format_3989"],
+      "APE_label": ["Input"]
+    },
+    {
+      "data_0006": ["data_9003"],
+      "format_1915": ["format_3989"],
+      "APE_label": ["Input"]
+    },
+    {
+      "data_0006": ["data_9001"],
+      "format_1915": ["format_1929", "format_3331"],
+      "APE_label": ["Input"]
+    }
+  ],
+
+The labeled inputs can now be used in the SLTLx formula:
+
+.. code-block:: json
+
+   {
+      "constraintid": "SLTLx",
+      "formula": "! Exists (?x) ('Input'(?x) & (F <'operation_0004'(?x;)> F <'operation_0004'(?x;)> true))"
+   }
+
+TODO: breakdown of formula above.
+
+SLTLx syntax
+""""""""""""
+TODO: talk about SLTLx syntax.
