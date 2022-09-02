@@ -6,7 +6,7 @@ Requirements
 To set up APE Web, you need to have either:
 
 * `Docker <https://www.docker.com/get-started/>`_ with Docker compose.
-* `Node.js 14 <https://nodejs.org/en/>`_ (or higher),
+* `Node.js 16 <https://nodejs.org/en/>`_ (or higher),
   `Java 11 <https://www.oracle.com/java/technologies/downloads/#java11>`_ (or higher),
   `Maven 3.3+ <https://maven.apache.org/download.cgi>`_,
   and a `MongoDB database <https://www.mongodb.com/try/download>`_.
