@@ -1,11 +1,6 @@
 APE Docs
 ========
 
-.. image:: ../../img/logo.png
-    :width: 150px
-    :alt: APE logo
-    :align: left
-
 .. note:: The APE team can always use your feedback and help to
           improve the tutorials and class references. If
           you don't understand something, or cannot find what you
