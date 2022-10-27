@@ -1,9 +1,6 @@
-APE Docs
-========
+    APE Docs
+    ========
 
-.. image:: https://user-images.githubusercontent.com/11068408/198268857-83b02297-0b03-4dc3-852b-52d889faaf3a.svg
-    :width: 150px
-    :alt: APE logo
 
 .. note:: The APE team can always use your feedback and help to
           improve the tutorials and class references. If
