@@ -1,3 +1,5 @@
+[![Documentation Status](https://readthedocs.org/projects/ape-framework/badge/?version=latest)](https://ape-framework.readthedocs.io/en/latest/?badge=latest)
+
 # APE Readthedocs Repo
 
 The repository is used to provide detailed documentation on how to use the [APE library](https://github.com/sanctuuary/APE).
