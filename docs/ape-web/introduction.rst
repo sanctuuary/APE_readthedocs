@@ -41,6 +41,6 @@ Contributors
 
 The project was later further developed by the following contributors:
 
-* Vedran Kasalica (`v.kasalica@uu.nl <mailto:v.kasalica@uu.nl>`_), lead developer
+* Vedran Kasalica (v.kasalica[at]esciencecenter.nl), lead developer
 * Koen Haverkort, student developer
-* Anna-Lena Lamprecht (`a.l.lamprecht@uu.nl <mailto:a.l.lamprecht@uu.nl>`_), project initiator and principal investigator
+* Anna-Lena Lamprecht (anna-lena.lamprecht[at]uni-potsdam.de), project initiator and principal investigator

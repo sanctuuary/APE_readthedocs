@@ -1,16 +1,21 @@
 APE Docs
 ========
 
-.. note:: The APE team can always use your feedback and help to 
+.. image:: ../../img/logo.png
+    :width: 150px
+    :alt: APE logo
+    :align: left
+
+.. note:: The APE team can always use your feedback and help to
           improve the tutorials and class references. If
           you don't understand something, or cannot find what you
           are looking for in the docs, help us make the documentation better
           by submitting an issue or pull request on the  `GitHub repository
-          <https://github.com/sanctuuary/APE/issues>`_! 
-          We welcome contributions (bug reports, bug fixes, feature requests, extensions, 
-          use cases, etc.) to APE. Please get in touch with 
-          Vedran Kasalica (`v.kasalica@uu.nl <mailto:v.kasalica@uu.nl>`_) to coordinate 
-          your contribution. We expect all contributors to follow our 
+          <https://github.com/sanctuuary/APE/issues>`_!
+          We welcome contributions (bug reports, bug fixes, feature requests, extensions,
+          use cases, etc.) to APE. Please get in touch with
+          Vedran Kasalica (v.kasalica[at]esciencecenter.nl) if you have any questions regarding
+          your contribution. We expect all contributors to follow our
           `Code of Conduct <https://github.com/sanctuuary/APE/blob/master/CODE_OF_CONDUCT.md>`_.
 
 Links
@@ -28,7 +33,7 @@ Contents
 .. toctree::
    :maxdepth: 3
    :caption: Basics
-   
+
    docs/basics/ape-introduction
    docs/basics/gettingstarted
    docs/basics/install
