@@ -2,7 +2,7 @@
 
 # APE Readthedocs Repo
 
-The repository is used to provide detailed documentation on how to use the [APE library](https://github.com/sanctuuary/APE).
+The repository is used to provide detailed documentation on how to use the [APE library](https://github.com/sanctuuary/APE). Running instance available [here](https://ape-framework.readthedocs.io/en/latest/?badge=latest).
 
 ## Building
 
