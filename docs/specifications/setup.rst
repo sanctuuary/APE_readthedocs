@@ -9,9 +9,9 @@ The API requires a configuration object, which could be created programmatically
 or could also be created from a (JSON) configuration file. 
 The file provides references to all required information, that can be classified in the following 3 groups:
 
-1. `Domain model <setup.html#domain-model>`_ - classification of the types and operations in the domain in form 
-   of an **ontology** (see `ontology example <../demo/imagemagick.html#ontology>`_ in OWL format) 
-   and a **tool annotation file** (see `tool annotations example <../demo/imagemagick.html#tools>`_ in JSON format).
+1. `Domain model <setup.html#id1>`_ - classification of the types and operations in the domain in form 
+   of an **ontology** (see `ontology example <https://github.com/sanctuuary/APE_UseCases/blob/master/ImageMagick/imagemagick_taxonomy.owl>`_ in OWL format) 
+   and a **tool annotation file** (see `tool annotations example <https://github.com/sanctuuary/APE_UseCases/blob/master/ImageMagick/tool_annotations.json>`_ in JSON format).
 2. *Workflow specification* - including a list of **workflow inputs/outputs** and template-based 
    (see constraint templates) **workflow constraints** (see workflow constraints example)
 3. *Parameters* for the synthesis execution, such as the number of desired solutions, 

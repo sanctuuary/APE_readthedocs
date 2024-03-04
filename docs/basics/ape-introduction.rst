@@ -67,9 +67,10 @@ Maven dependencies
 
 Contributors
 ^^^^^^^^^^^^
-* Vedran Kasalica (v.kasalica[at]esciencecenter.nl), lead developer
+* Vedran Kasalica (v.kasalica[at]esciencecenter.nl), lead research software developer
 * Maurin Voshol, student developer
 * Koen Haverkort, student developer
+* Peter Kok, research software developer
 * Anna-Lena Lamprecht (anna-lena.lamprecht[at]uni-potsdam.de), project initiator and principal investigator
 
 References

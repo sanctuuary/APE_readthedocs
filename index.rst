@@ -52,6 +52,14 @@ Contents
 
 .. toctree::
    :maxdepth: 3
+   :caption: RESTful APE
+
+   docs/restful-ape/introduction
+   docs/restful-ape/gettingstarted
+   docs/restful-ape/restful-api
+
+.. toctree::
+   :maxdepth: 3
    :caption: APE Web
 
    docs/ape-web/introduction
