@@ -1,5 +1,5 @@
 Welcome to APE’s documentation!
-========
+===============================
 
 .. note:: The APE team can always use your feedback and help to
           improve the tutorials and class references. If
