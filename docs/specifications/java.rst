@@ -244,9 +244,8 @@ APE as a Web plug-in
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
-    The following documentation is for APE **1.0.2**, which will be released soon.
-    If you cannot wait to get started with this part, use :download:`APE-1.0.2_0e3633-executable.jar <../../files/APE-1.0.2_0e3633-executable.jar>` 
-    (30-09-2020) for now, generated from `this <https://github.com/sanctuuary/APE/tree/0e36337558957595d14fc466f5d3a78c110e180d>`_ commit.
+    The following documentation is for APE **2.3.0**.
+    Use :download:`APE-executable.jar <https://repo1.maven.org/maven2/io/github/sanctuuary/APE/2.3.0/APE-2.3.0-executable.jar>`.
 
 Tag information
 ~~~~~~~~~~~~~~~
@@ -254,7 +253,7 @@ Tag information
 Tag Types
 ---------
 
-Tags can have the following type enummerations:
+Tags can have the following type enumerations:
 
 +---------------------+---------------------------------------------------+
 | Type                | Description                                       |
@@ -284,7 +283,7 @@ Info by JSON
 ------------
 
 Request information about the (run)configuration fields in JSON format. 
-Note that ``"type"`` is one of the enummerations mentioned above:
+Note that ``"type"`` is one of the enumerations mentioned above:
 
 .. code-block:: java
 
