@@ -8,7 +8,6 @@ It allows users to set up and share domains, and run APE to explore workflows on
 The inputs, outputs and constraints for workflows can easily be configured via the interface.
 Additional tools are also included, such as a visual constraint sketcher and workflow comparer.
 
-A running version of APE Web can be found at `ape.science.uu.nl <https://ape.science.uu.nl>`_.
 
 License
 ^^^^^^^
