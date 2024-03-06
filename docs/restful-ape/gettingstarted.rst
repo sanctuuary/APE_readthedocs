@@ -37,13 +37,24 @@ Alternatively, you can build the jar package first:
 Making Your First Request
 -------------------------
 
-With the RESTful API server active, you're ready to initiate your first request to explore computational pipelines. Below is a `curl` command example to get you started:
+With the RESTful API server active, you're ready to initiate your first request to retrieve data taxonomy for a given domain. Below is a `curl` command example to get you started:
 
 .. code-block:: shell
 
-   curl -X POST [host]:[port]/api/explore -H "Content-Type: application/json" -d '{your_request_data}'
+   curl -X GET [host]:[port]/data_taxonomy?config_path=https://raw.githubusercontent.com/Workflomics/domain-annotations/main/MassSpectometry/config.json" -H "Content-Type: application/json"
+
+Ensure you replace `[host]` and `[port]`, with the correct values corresponding to your environment.
+
+
+Once you've made your have a configuration file setup (see an `example <https://github.com/Workflomics/domain-annotations/blob/main/WombatP_tools/config.json>`_ for reference), you can use the following command to initiate the synthesis run:
+.. code-block:: shell
+
+   curl -X POST [host]:[port]/run_synthesis_and_bench -H "Content-Type: application/json" -d '{your_configuration_file}'
 
 Ensure you replace `[host]`, `[port]`, and `{your_request_data}` with the correct values corresponding to your environment.
+
+The response will contain the information of the generated workflows and their performance, which can be retrieved using dedicated endpoints (e.g., /image, /cwl, /cwl_zip, etc.).
+
 
 Exploring the OpenAPI Documentation
 -----------------------------------
