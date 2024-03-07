@@ -10,7 +10,7 @@ Before you begin, ensure you have the following prerequisites installed:
 
 - Java JDK 11 or higher
 - Maven (for building the project)
-- An HTTP client (like Postman, or `curl` command-line tool)
+- An HTTP client (like Postman, or the `curl` command-line tool)
 
 **Running the Spring Boot Application**
 

@@ -1,6 +1,10 @@
 Welcome to APE’s documentation!
 ===============================
 
+APE (Automated Pipeline Explorer) is a command line tool and Java API for the automated exploration of possible computational pipelines (scientific workflows) from large collections of computational tools. It also comes with a RESTful API interface. APE was originally developed at Utrecht University and is now maintained by the Netherlands eScience Center.
+
+
+
 .. note:: The APE team can always use your feedback and help to
           improve the tutorials and class references. If
           you don't understand something, or cannot find what you
@@ -13,12 +17,17 @@ Welcome to APE’s documentation!
           your contribution. We expect all contributors to follow our
           `Code of Conduct <https://github.com/sanctuuary/APE/blob/master/CODE_OF_CONDUCT.md>`_.
 
-Links
-=====
+Relevant links
+==============
 
-- `APE Web <https://ape.science.uu.nl/>`_
-- `APE repository <https://github.com/sanctuuary/APE>`_
+- `APE GitHub <https://github.com/sanctuuary/ape>`_
+- `RESTful APE <https://github.com/sanctuuary/restape>`_
+
 - `Use cases <https://github.com/sanctuuary/APE_UseCases>`_
+
+Web platforms using APE:
+- `Workflomics <https://github.com/Workflomics/workflomics-frontend>`_
+- `APE Web <https://ape.science.uu.nl/>`_
 
 Contents
 ========
@@ -26,7 +35,7 @@ Contents
 .. example: docs/basics/ape-introduction references to ./docs/basics/ape-introduction.rst
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Basics
 
    docs/basics/ape-introduction
@@ -34,7 +43,7 @@ Contents
    docs/basics/install
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: APE Specifications
 
    docs/specifications/setup
@@ -42,7 +51,7 @@ Contents
    docs/specifications/cli
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Use cases and Demos
 
    docs/demo/demo-overview
@@ -51,7 +60,7 @@ Contents
    docs/demo/massspectrometry/massspectrometry
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: RESTful APE
 
    docs/restful-ape/introduction
@@ -59,7 +68,7 @@ Contents
    docs/restful-ape/restful-api
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: APE Web
 
    docs/ape-web/introduction
