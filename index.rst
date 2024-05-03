@@ -26,8 +26,8 @@ Relevant links
 - `Use cases <https://github.com/sanctuuary/APE_UseCases>`_
 
 Web platforms using APE:
+
 - `Workflomics <https://github.com/Workflomics/workflomics-frontend>`_
-- `APE Web <https://ape.science.uu.nl/>`_
 
 Contents
 ========
