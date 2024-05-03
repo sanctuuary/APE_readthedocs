@@ -27,14 +27,14 @@ No 1
 ^^^^
 
 As an example, if you would download the 
-`APE-1.0.2-executable.jar <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/1.0.2/APE-1.0.2-executable.jar>`_ 
+`APE-2.3.0-executable.jar <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/2.3.0/APE-2.3.0-executable.jar>`_ 
 to the root of APE_UseCases repository on your local machine, 
 you could run this demo by executing the following command:
 
 .. code-block:: shell
 
     cd ~/git/APE_UseCases
-    java -jar APE-1.0.1-executable.jar MassSpectometry/No1/ape.configuration
+    java -jar APE-2.3.0-executable.jar MassSpectometry/No1/ape.configuration
 
 The results of the synthesis would be:
 
