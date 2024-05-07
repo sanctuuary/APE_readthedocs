@@ -1,7 +1,7 @@
 Welcome to APE’s documentation!
 ===============================
 
-APE (Automated Pipeline Explorer) is a command line tool and Java API for the automated exploration of possible computational pipelines (scientific workflows) from large collections of computational tools. It also comes with a RESTful API interface. APE was originally developed at Utrecht University and is now maintained by the Netherlands eScience Center.
+APE (Automated Pipeline Explorer) is a library (available as CLI, Java API and a RESTful API) for the automated exploration of possible computational pipelines (scientific workflows) from large collections of computational tools. It also comes with a RESTful API interface. APE was originally developed at Utrecht University and is now maintained by the Netherlands eScience Center.
 
 
 
