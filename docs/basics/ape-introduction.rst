@@ -9,7 +9,7 @@ About APE
     :alt: APE logo
     :align: left
 
-APE (Automated Pipeline Explorer) is a command line tool and Java API for the automated exploration of possible computational
+APE (Automated Pipeline Explorer) (see `GitHub<https://github.com/sanctuuary/APE>`_) is a library (available as CLI, Java API and a RESTful API) for the automated exploration of possible computational
 pipelines (scientific workflows) from large collections of computational tools.
 
 APE relies on a semantic domain model that includes tool and type taxonomies as controlled
@@ -21,7 +21,7 @@ outputs and possibly additional constraints, APE then computes possible workflow
 Internally, APE uses a component-based program synthesis approach. It translates the domain
 knowledge and workflow specification into logical formulas that are then fed to a SAT solver
 to compute satisfying instances. These solutions are then translated into the actual
-candidate workflows. For detailed description we refer to [1]_.
+candidate workflows. For a detailed description we refer to [1]_.
 
 For our paper at ICCS 2020 [2]_ we created a video that explains APE in 5 minutes:
 
@@ -31,14 +31,10 @@ For our paper at ICCS 2020 [2]_ we created a video that explains APE in 5 minute
 
 |
 
-.. note::
+.. APE in practice::
        Our `use cases <../demo/imagemagick.html>`_ are motivated by practical
        problems in various domains (e.g. bioinformatics, GIS [3]_).
-       For one of the bioinformatics use cases, our intern Karl Allgaeuer developed
-       a prototype of a web-based interface to APE. It is available at
-       `ape.science.uu.nl <http://ape.science.uu.nl/>`_ (alpha).
-       A Docker version of this demonstrator is available at
-       `github.com/sanctuuary/Burke_Docker <https://github.com/sanctuuary/Burke_Docker>`_
+       In bioinformatics, the `Workflomics<https://workflomics.org/>`_ platform for creating and benchmarking workflows uses APE (specifically APE's RESTfull API) to generate candidate workflows.
 
 Credits
 ^^^^^^^
