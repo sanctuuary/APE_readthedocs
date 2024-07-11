@@ -143,19 +143,19 @@ The run configuration is structured as follows:
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``debug_mode``                    | True for debug command line output               | False             |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``use_workflow_input``            | ``ALL`` if all the workflow inputs have to be    | ONE               |
+| ``use_workflow_input``            | ``ALL`` if all the workflow inputs must be    | ONE               |
 |                                   |                                                  |                   |
-|                                   | used,``ONE`` if one of the workflow inputs       |                   |
+|                                   | used,``ONE`` if at least one of the workflow inputs       |                   |
 |                                   |                                                  |                   |
-|                                   | should be used or ``NONE`` if none of the        |                   |
+|                                   | must be used or ``NONE`` if none of the        |                   |
 |                                   |                                                  |                   |
 |                                   | workflow inputs has to be used.                  |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``use_all_generated_data``        | ``ALL`` if all the generated data has to be      | ALL               |
+| ``use_all_generated_data``        | ``ALL`` if all the generated data must be      | ALL               |
 |                                   |                                                  |                   |
-|                                   | used, ``ONE`` if one of the data instances that  |                   |
+|                                   | used, ``ONE`` if at least one of the data instances that  |                   |
 |                                   |                                                  |                   |
-|                                   | are generated as output, per tool, has to be     |                   |
+|                                   | are generated as output, per tool, must be     |                   |
 |                                   |                                                  |                   |
 |                                   | used or ``NONE`` if none of the data instances   |                   |
 |                                   |                                                  |                   |
