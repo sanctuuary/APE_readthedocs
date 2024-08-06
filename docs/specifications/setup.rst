@@ -1,12 +1,10 @@
-APE Setup
-=========
+How to annotate your domain
+===========================
 
 Configuration file
 ^^^^^^^^^^^^^^^^^^
 
-In order to run APE from the command line, a (JSON) configuration file needs to be provided. 
-The API requires a configuration object, which could be created programmatically 
-or could also be created from a (JSON) configuration file. 
+In order to run APE a configuration needs to be provided. The configuration can be provided in a JSON file, or programmatically (when using APE as a java library).
 The file provides references to all required information, that can be classified in the following 3 groups:
 
 1. `Domain model <setup.html#id1>`_ - classification of the types and operations in the domain in form 
@@ -374,182 +372,35 @@ or the output of a previous tool.
 CWL Annotations
 ^^^^^^^^^^^^^^^^^^
 
-The CWL annotations file specifies the the CWL code related to each tool
-to allow APE to generate executable CWL workflow files.
+The CWL annotations file specifies the the CWL code related to each tool to allow APE to generate executable CWL workflow files. Instead of providing the explicit commands within the domain annotations file, the user is expected to provide a path to the CWL file that contains the CWL code for the tool. The path can be a local path or a URL. An example of a tool annotation with a CWL reference is shown below:
 
-Structure
-~~~~~~~~~
+.. code-block:: json
 
-The file has the following structure:
+   {
+      "outputs": [
+            {
+               "format_1915": ["http://edamontology.org/format_2330"],
+               "data_0006": ["http://edamontology.org/data_2872"]
+            }
+      ],
+      "inputs": [
+            {
+               "format_1915": ["http://edamontology.org/format_3747"],
+               "data_0006": ["http://edamontology.org/data_0945"]
+            }
+      ],
+      "taxonomyOperations": [
+            "http://edamontology.org/operation_3434", "http://edamontology.org/operation_0335"
+      ],
+      
+      "implementation" : { "cwl_reference" : "https://raw.githubusercontent.com/Workflomics/containers/main/cwl/tools/protXml2IdList/protXml2IdList.cwl"} , 
+      "label": "protXml2IdList",
+      "id": "protXml2IdList"
+   }
 
-.. code-block:: shell
+The example illustrates a tool called ``protXml2IdList`` that takes an input of type ``data_0945`` and format ``format_3747`` and outputs data of type ``data_2872`` and format ``format_2330``.
+ Notice that the data instances in the example are defined by a pair, data type (`data_0006`) and format (`format_1915`). The operations, data types and formats are referenced by their (`EDAM <https://edamontology.github.io/edam-browser/#format_2330>`_) ontology URIs.
 
-   +ID:
-     inputs:
-       +input_definition
-     ?implementation:
-       code
-
-where (+) requires 1 or more, (?) requires 0 or 1, and no sign requires existence of exactly 1 such tag.
-
-+------------------+----------------------------------------------------------------------------------------------------+
-| Tag              | Description                                                                                        |
-+==================+====================================================================================================+
-| ID               | unique identifier of the tool                                                                      |
-+------------------+----------------------------------------------------------------------------------------------------+
-| input_definition | CWL `WorkflowInputParameter <https://www.commonwl.org/v1.1/Workflow.html#WorkflowInputParameter>`_ |
-+------------------+----------------------------------------------------------------------------------------------------+
-| code             | CWL `WorkflowStep <https://www.commonwl.org/v1.1/Workflow.html#WorkflowStep>`_                     |
-+------------------+----------------------------------------------------------------------------------------------------+
-
-Example
-~~~~~~~
-
-The following example annotates the tool ``black_white``,
-which takes any ``Image`` (Type) of any Format and outputs a grayscale image.
-As a regular shell command, it would look like this:
-
-.. code-block:: shell
-
-   convert $input0 -colorspace Gray out.png
-
-This is the CWL annotation representing the command:
-
-.. code-block:: yaml
-
-   black_white:
-      inputs:
-      - \@image\@: File
-      implementation:
-        black_white:
-          in:
-            image: \@input[0]
-          out: [image_out]
-          run:
-            class: CommandLineTool
-            baseCommand: convert
-            arguments:
-            - valueFrom: -colorspace Gray
-              position: 1
-              shellQuote: False
-            - valueFrom: out.png
-              position: 2
-            inputs:
-              image:
-                type: File
-                inputBinding:
-                  position: 0
-              outputs:
-                image_out:
-                  type: File
-                  outputBinding:
-                    glob: out.png
-
-Note that each input name should be surrounded by ``\@`` to tell APE this is the name.
-APE will generate unique names for the step inputs in the workflow and link the workflow inputs.
-
-Multiple steps in one tool
-""""""""""""""""""""""""""
-
-If you want to perform multiple steps in one tool,
-you can simply define multiple CWL steps in the implementation section of the annotation.
-For example, like the ``add_small_border`` tool:
-
-.. code-block:: shell
-
-   height=$(($(identify -format '%h' $input0)/20))
-   convert $input0 -bordercolor $input1 -border $height out.png
-
-This tool first calculates the height of the image in the step ``calc_height``,
-and then uses it to set the size of the border it gives to the image in step ``add_small_border``.
-``$input0`` represents the input image, and ``$input1`` represents the color of the border.
-
-.. code-block:: yaml
-   
-   add_small_border:
-     inputs:
-       - \@image\@: File
-       - \@color\@: string
-     implementation:
-       # Step 1
-       calc_height:
-         in:
-           image: \@input[0]
-         out: [height]
-         run:
-           class: CommandLineTool
-           baseCommand: identify
-           stdout: out
-           inputs:
-             image:
-               type: File
-               inputBinding:
-                 position: 0
-                 prefix: -format '%h'
-                 shellQuote: False
-           outputs:
-             height:
-               type: int
-               outputBinding:
-                 glob: out
-                 loadContents: true
-                 outputEval: $(self[0].contents / 20)
-       # Step 2
-       add_small_border:
-         in:
-           image: \@input[0]
-           color: \@input[1]
-           height: calc_height/height
-         out: [image_out]
-         run:
-           class: CommandLineTool
-           baseCommand: convert
-           arguments:
-           - valueFrom: out.png
-             position: 3
-           inputs:
-             image:
-               type: File
-               inputBinding:
-                 position: 0
-             color:
-               type: string
-               inputBinding:
-                 position: 1
-                 prefix: -bordercolor
-             height:
-               type: int
-               inputBinding:
-                 position: 2
-                 prefix: -border
-             outputs:
-               image_out:
-                 type: File
-                 outputBinding:
-                   glob: out.png
-
-Note that each input is numbered. Because the ``image`` input is listed first and ``color`` second,
-they are represented by ``\@input[0]`` and ``\input[1]`` respectively.
-It is important these inputs are placed in the same order as the inputs in the tool annotations file.
-
-Also note that you can put the ``\@input`` bindings wherever you want, and as many times as you want.
-APE will automatically fill them in later.
-
-Additional workflow input parameters
-""""""""""""""""""""""""""""""""""""
-
-Sometimes tools might only want to read some input parameter.
-To implement such a tool in the CWL annotations, add an annotation which does not have an implementation.
-For example, in ImageMagick there is a tool ``generate_color``.
-This tool only reads a color name given by the user, which can be used by other tools later.
-
-.. code-block:: yaml
-
-   generate_color:
-     inputs:
-     - \@color\@:
-         type: string
-         default: Cyan
 
 Constraints File
 ^^^^^^^^^^^^^^^^
@@ -646,23 +497,31 @@ ID                    Description
 --------------------  -----------
 ``not_connected_op``  The 1st operation should never generate an output sued by the 2nd operation.
 --------------------  -----------
-``not_repeat_op``     No operation that belongs to the subtree should be repeated over.
+``not_repeat_op``     No operation that belongs to the subtree should be repeated within the workflow.
 ====================  ===========
 
 SLTLx constraints
 ~~~~~~~~~~~~~~~~~
 
 SLTLx (Semantic Linear Time Temporal Logic extended) allows the user to define constraints using logical formulas.
-For example, the following constraint prevents an operation within the subtree ``operation_0004`` from using the same input twice:
+For example, the following constraint prevents an operation within the subtree ``Transformation`` from using the same input twice:
 
 .. code-block:: json
 
    {
       "constraintid": "SLTLx",
-      "formula": "!F Exists (?x1) (<'operation_0004'(?x1,?x1;)> true)"
+      "formula": "!F Exists (?x) (<'Transformation'(?x,?x;)> true)"
    }
 
-TODO: breakdown of formula above.
+The formula above can be broken down as follows:
+
+- ``!``: negation operator
+- ``F``: Finally operator - the formula holds at some point in the future (future in Time Logics can be seen as the following states in the workflow)
+- ``Exists``: Existential quantifier
+- ``?x``: variable
+- <Transformation'(?x,?x;)> true : after applying operation ``Transformation`` with at least 2 distinct inputs ``?x`` and ``?x`` we reach a state where the formula holds (true). Notice that the semicolon ``;`` is used to separate the inputs and outputs of the operation. In our specification no outputs were specified.
+
+The formula above can be interpreted as: "It is not the case that in the workflow there exists an operation ``Transformation`` that uses the same input twice."
 
 This second example specifies a constraint which makes sure a workflow input is used only once.
 To tell APE which inputs are not to be used twice, the workflow inputs have been labeled as "Input" in the run configuration file:
@@ -693,10 +552,22 @@ The labeled inputs can now be used in the SLTLx formula:
 
    {
       "constraintid": "SLTLx",
-      "formula": "! Exists (?x) ('Input'(?x) & (F <'operation_0004'(?x;)> F <'operation_0004'(?x;)> true))"
+      "formula": "! Exists (?x) ('Input'(?x) & (F <'Tool'(?x;)> F <'Tool'(?x;)> true))"
    }
 
-TODO: breakdown of formula above.
+In our example ``Tool`` is the root of the tool taxonomy, therefore it's the most general type of operation. The formula above can be broken down as follows:
+
+- ``!``: negation operator
+- ``Exists``: Existential quantifier
+- ``?x``: variable
+- ``'Input'(?x)``: the variable ``?x`` is of type ``Input``
+- ``&``: logical AND operator
+- ``F``: Finally operator - the formula holds at some point in the future (future in Time Logics can be seen as the following states in the workflow)
+- ``<'Tool'(?x;)> X``: after applying operation ``Tool`` with input ``?x`` we reach a state where the formula ``X`` holds (in our case, the formula ``X`` is ``F <'Tool'(?x;)> true``)
+- ``F <'Tool'(?x;)> true``: at some point in the future, the operation ``Tool`` with input ``?x`` is applied and the formula holds (true)
+
+The formula above can be interpreted as: "It is not the case that in the workflow there exists an input that is used twice."
+
 
 SLTLx syntax
 """"""""""""

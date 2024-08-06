@@ -9,7 +9,7 @@ About APE
     :alt: APE logo
     :align: left
 
-APE (Automated Pipeline Explorer) (see `GitHub<https://github.com/sanctuuary/APE>`_) is a library (available as CLI, Java API and a RESTful API) for the automated exploration of possible computational
+`APE (Automated Pipeline Explorer) <https://github.com/sanctuuary/APE>`_ is a library (available as CLI, Java API and a RESTful API) for the automated exploration of possible computational
 pipelines (scientific workflows) from large collections of computational tools.
 
 APE relies on a semantic domain model that includes tool and type taxonomies as controlled
