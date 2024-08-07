@@ -40,15 +40,22 @@ Contents
 
    docs/basics/ape-introduction
    docs/basics/gettingstarted
-   docs/basics/install
 
 .. toctree::
    :maxdepth: 2
-   :caption: APE Specifications
+   :caption: Configure APE
 
-   docs/specifications/setup
-   docs/specifications/java
-   docs/specifications/cli
+   docs/specifications/domain
+   docs/specifications/constraints
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Using APE
+
+   docs/developers/install
+   docs/developers/java
+   docs/developers/cli
+   docs/developers/developers
 
 .. toctree::
    :maxdepth: 2
@@ -57,6 +64,7 @@ Contents
    docs/restful-ape/introduction
    docs/restful-ape/gettingstarted
    docs/restful-ape/restful-api
+
 
 .. toctree::
    :maxdepth: 2

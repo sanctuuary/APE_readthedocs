@@ -1,8 +1,5 @@
-For Developers
-==============
-
 SAT solving
-^^^^^^^^^^^
+===========
 
 APE uses Mini SAT solver to generate workflows, by relying on the SAT4J library. It creates a CNF (Conjunctive Normal Form) file the given length and gives it to the solver to find the first solution. Other solutions on the same length are found by adding a clause to the CNF file that excludes the previous solution (by adding the negations of the previous solution to the specification). This process is repeated until the desired number of solutions is found. In case not enough solutions are found on the given length, the length is increased and the process is repeated, by generating a new CNF file that encodes the problem on the new length.
 
@@ -13,10 +10,11 @@ The CNF encoding of the problem is used only internally, and comprises a set of 
    APE apeFramework = new APE(config);
    apeFramework.getDomainSetup().setWriteLocalCNF("/home/cnf_encoding.txt");
 
-Upon execution, the file will be created in the given path, and the user can inspect the CNF encoding of the problem. The following is an example of the CNF encoding of the problem:
+Upon execution, the file will be created in the given path, and the user can inspect the CNF encoding of the problem. The following is an example snippet of the CNF encoding of the problem:
 
 
 .. code-block:: 
+
     -http://edamontology.org/Artic(Tool1) empty(Out1.2) 
     -http://edamontology.org/Nanome(Tool1) &APE_label&Data&TSV&(InT0.0) 
     -http://edamontology.org/halvade_somatic(Tool1) empty(Out1.1)

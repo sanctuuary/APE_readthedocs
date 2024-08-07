@@ -1,4 +1,4 @@
-My First APE Run
+My first APE run
 ================
 
 Automated workflow composition with APE can be performed through its 
