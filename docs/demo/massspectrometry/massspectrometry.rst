@@ -34,7 +34,7 @@ you could run this demo by executing the following command:
 .. code-block:: shell
 
     cd ~/git/APE_UseCases
-    java -jar APE-2.3.0-executable.jar MassSpectometry/No1/ape.configuration
+    java -jar APE-2.3.0-executable.jar MassSpectometry/No1/config.jsonuration
 
 The results of the synthesis would be:
 

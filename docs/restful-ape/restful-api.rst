@@ -1,5 +1,5 @@
-Overview of RESTful APE API
-=======================================
+RESTful API Methods
+===================
 
 This section offers a brief overview of the RESTful APE API, designed to facilitate automated pipeline exploration through HTTP requests. It serves as an initial sketch to familiarize users with the API's core functionalities and endpoints.
 

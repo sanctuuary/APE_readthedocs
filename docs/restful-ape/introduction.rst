@@ -3,8 +3,8 @@
       <img src="https://user-images.githubusercontent.com/11068408/225042428-824741e2-9618-413c-9546-bc352b3bb23b.png#gh-light-mode-only" alt="RestAPE Logo">
    </p>
 
-Introduction to RESTful APE
-===========================
+Introduction to APE's RESTful API
+=================================
  
 `RESTful APE <https://github.com/sanctuuary/restape>`_ is a **RESTful API** for the **APE** library (see `documentation <https://ape-framework.readthedocs.io/en/latest/>`_).  It offers an interface for users to engage with APE's automated pipeline exploration capabilities through HTTP requests. APE, both a command line tool and a Java API, facilitates the automatic exploration of computational pipelines from extensive collections of computational tools.
 

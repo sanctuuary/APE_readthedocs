@@ -500,10 +500,11 @@ ID                    Description
 ``not_repeat_op``     No operation that belongs to the subtree should be repeated within the workflow.
 ====================  ===========
 
-SLTLx constraints
-~~~~~~~~~~~~~~~~~
+.. _sltlx-constraints:
+SLTL\ :sup:`x` constraints
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-SLTLx (Semantic Linear Time Temporal Logic extended) allows the user to define constraints using logical formulas.
+SLTL\ :sup:`x` (Semantic Linear Time Temporal Logic extended) allows the user to define constraints using logical formulas.
 For example, the following constraint prevents an operation within the subtree ``Transformation`` from using the same input twice:
 
 .. code-block:: json
@@ -546,7 +547,7 @@ To tell APE which inputs are not to be used twice, the workflow inputs have been
     }
   ],
 
-The labeled inputs can now be used in the SLTLx formula:
+The labeled inputs can now be used in the SLTL\ :sup:`x` formula:
 
 .. code-block:: json
 
@@ -569,6 +570,86 @@ In our example ``Tool`` is the root of the tool taxonomy, therefore it's the mos
 The formula above can be interpreted as: "It is not the case that in the workflow there exists an input that is used twice."
 
 
-SLTLx syntax
+SLTL\ :sup:`x` syntax
+~~~~~~~~~~~~~~~~~~~~~
+
+This document provides a list of syntax options available in the SLTL\ :sup:`x` logic.
+
+Formulas
+""""""""
+
+A ``formula`` can be one of the following:
+
+1. ``true``                                     
+2. ``( formula )``                              
+3. ``< TOOL > formula``                       
+4. ``CONSTANT ( VARIABLE )``                    
+5. ``VARIABLE = VARIABLE``                      
+6. ``! formula``                                
+7. ``Forall ( VARIABLE ) formula``              
+8. ``Exists ( VARIABLE ) formula``              
+9. ``UN_MODAL formula``                         
+10. ``formula BIN_CONNECTIVE formula``           
+11. ``formula BIN_MODAL formula``                
+12. ``R ( VARIABLE , VARIABLE )``               
+
+Binary Connectives (``BIN_CONNECTIVE``)
+"""""""""""""""""""""""""""""""""""
+
+- ``&`` (AND)
+- ``|`` (OR)
+- ``->`` (IMPL)
+- ``<->`` (EQUIVALENT)
+
+Unary Modal Operators (``UN_MODAL``)
+""""""""""""""""""""""""""""""""
+
+- ``G`` (GLOBALLY)
+- ``F`` (FINALLY)
+- ``X`` (NEXT STEP)
+
+Binary Modal Operators (BIN_MODAL)
+""""""""""""""""""""""""""""""""""
+
+- ``U`` (``SLTL_UNTIL``)
+
+Tool (``TOOL``)
 """"""""""""
-TODO: talk about SLTLx syntax.
+
+A ``TOOL`` is defined as:
+
+``CONSTANT ( VARIABLE,...,VARIABLE ; VARIABLE,...,VARIABLE )``
+
+
+Variables (``VARIABLE``)
+""""""""""""""""""""
+
+- A variable is denoted by a ``?`` followed by alphanumeric characters or underscores.
+
+Tokens
+""""""
+
+- ``true``: The constant true.
+- ``VARIABLE``: A variable starting with ``?``.
+- ``CONSTANT``: A constant enclosed in single quotes ``'``.
+- ``R``: Relation.
+- ``U``: Until.
+- ``G``: Globally.
+- ``F``: Finally.
+- ``X``: Next.
+- ``|``: OR.
+- ``&``: AND.
+- ``->``: Implies.
+- ``<->``: Equivalent.
+- ``=``: Equals.
+- ``!``: Negation.
+- ``Exists``: Existential quantifier.
+- ``Forall``: Universal quantifier.
+
+Examples
+""""""""
+
+1. ``!F Exists (?x) (<'Transformation'(?x,?x;)> true)`` - No operation within the subtree ``Transformation`` uses the same input twice.
+2. ``! Exists (?x) ('Input'(?x) & (F <'Tool'(?x;)> F <'Tool'(?x;)> true))`` - No ``Input`` is used twice (where ``Input`` is a custom label added to all the inputs).
+
+See `SLTL\ :sup:`x` Constraints <#sltlx-constraints>`_ for more detailed explanation of the constraints.

@@ -52,7 +52,7 @@ you could run this demo by executing the following command:
 .. code-block:: shell
 
     cd ~/git/APE_UseCases
-    java -jar APE-<version>.jar GeoGMT/E0/ape.configuration
+    java -jar APE-<version>.jar GeoGMT/E0/config.json
 
 The results of the synthesis would be:
 
@@ -71,7 +71,7 @@ the domain [1]_.
 .. code-block:: shell
 
     cd ~/git/APE_UseCases
-    java -jar APE-<version>.jar GeoGMT/E1/ape.configuration
+    java -jar APE-<version>.jar GeoGMT/E1/config.jsonuration
 
 Domain Model
 ^^^^^^^^^^^^

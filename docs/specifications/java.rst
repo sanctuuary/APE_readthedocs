@@ -4,10 +4,10 @@ APE as a Java Library
 Run APE from a Java environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Like the CLI, the APE API relies on a configuration file or object that references 
+The APE library relies on a configuration file or object that references 
 the domain ontology, tool annotations, workflow specification and execution 
 parameters. All the parameters can either be set by a JSONObject/JSON file or 
-be set programmatically.
+be set programmatically. The guidelines how to create domain configuration (and annotation) were provided on the `previous page <setup.html>`_.
 
 APE API functions
 ^^^^^^^^^^^^^^^^^
