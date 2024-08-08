@@ -4,9 +4,20 @@
 
 The repository is used to provide detailed documentation on how to use the [APE library](https://github.com/sanctuuary/APE). A running instance available [here](https://ape-framework.readthedocs.io/en/latest/?badge=latest).
 
-## Building
+## How to build the documentation locally
 
-Building these docs requires [Sphinx](https://www.sphinx-doc.org/en/master/index.html).
+1. Clone the repository and navigate to the root directory
 
-To build the docs yourself, run `make` to see a list of possible output targets.
-For example, run `make html` to make standalone HTML files.
+2. Install the required packages
+
+    ```bash
+    pip install -r ./requirements.txt
+    ```
+
+3. Build the documentation
+
+    ```bash
+    make html
+    ```
+
+4. The documentation will be available in the `./_build/html` directory. Open the `index.html` file in your browser to view the documentation.
