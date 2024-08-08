@@ -103,8 +103,9 @@ Run the Synthesis
 
     // write the solutions to the file system
     APE.writeSolutionToFile(solutions); // write solutions to ./sat_solutions.txt
-    APE.writeDataFlowGraphs(solutions, Rank.RankDir.TOP_TO_BOTTOM); // save images to ./Figures/
+    APE.writeDataFlowGraphs(solutions, Rank.RankDir.TOP_TO_BOTTOM); // save images to ./Figures/, alternatively APE.writeTavernaDesignGraphs() method can be used to generate workflows that follow the visual design of Taverna workflows
     APE.writeExecutableWorkflows(solutions); // save scripts to ./Executables/
+    APE.writeCWLWorkflows(solutions); // save CWL files to ./CWL/
 
 
 The API allows to generate and edit the configuration file programmatically between runs:

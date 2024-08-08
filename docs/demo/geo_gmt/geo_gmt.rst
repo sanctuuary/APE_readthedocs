@@ -54,13 +54,18 @@ you could run this demo by executing the following command:
     cd ~/git/APE_UseCases
     java -jar APE-<version>.jar GeoGMT/E0/config.json
 
-The results of the synthesis would be:
+.. note::
+    In case the execution fails due to the heap space, 
+
+The results of the synthesis would be stored under the directory 
+specified in the configuration file (``solutions_dir_path`` parameter). The results of the synthesis would be:
 
 .. code-block:: shell
 
-	GeoGMT/E0/solutions.txt - First 100 candidate solutions in textual format
-	GeoGMT/E0/Figures/          - Data-flow figures corresponding to the first 10 solutions
-	GeoGMT/E0/Executables/  - Executable shell scripts corresponding to the first 6 solutions
+    solutions_dir_path/solutions.txt - First X candidate solutions in textual format, where X is the number of solutions specified in the config file (``solutions`` parameter)
+    solutions_dir_path/Figures/        - Workflow figures corresponding to the first Y solutions, where Y is the number of solutions specified in the config file (``number_of_generated_graphs`` parameter, 0 if not specified))
+    solutions_dir_path/Executables/  - Executable shell scripts corresponding to the first Z solution, where Z is the number of solutions specified in the config file (``number_of_execution_scripts`` parameter, 0 if not specified))
+    solutions_dir_path/CWL/ - CWL files corresponding to the first Q solution, where Q is the number of solutions specified in the config file (``number_of_cwl_files`` parameter, 0 if not specified)
 
 
 E1 - Additional Constraints

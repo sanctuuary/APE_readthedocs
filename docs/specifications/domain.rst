@@ -59,8 +59,6 @@ The core configuration is structured as follows:
 |                                 |          | where the inheritance has to be strictly specified, false if we  |
 |                                 |          | should consider all possible data traces (gives more solutions). |
 +---------------------------------+----------+------------------------------------------------------------------+
-| ``cwl_annotations_path``        | No       | Path to the YAML file that contains CWL tool annotations.        |
-+---------------------------------+----------+------------------------------------------------------------------+
 
 JSON example:
 
@@ -72,7 +70,6 @@ JSON example:
       "toolsTaxonomyRoot": "ToolsTaxonomy",
       "dataDimensionsTaxonomyRoots": ["TypesTaxonomy"],
       "tool_annotations_path": "./GeoGMT/tool_annotations.json",
-      "cwl_annotations_path": "./GeoGTM/cwl_annotations.yaml",
    }
 
 
