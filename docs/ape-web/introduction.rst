@@ -1,17 +1,14 @@
 Introduction to APE Web
 =======================
 
-About APE Web
-^^^^^^^^^^^^^
-APE Web is a website build around APE to provide a user-friendly interface for using APE.
+`APE Web <https://github.com/sanctuuary/APE-Web>`_ is a web interface build around APE to provide a user-friendly interface for using APE.
 It allows users to set up and share domains, and run APE to explore workflows online.
 The inputs, outputs and constraints for workflows can easily be configured via the interface.
 Additional tools are also included, such as a visual constraint sketcher and workflow comparer.
 
+APE Web is available under the Apache 2.0 license.
 
-License
-^^^^^^^
-APE Web is licensed under the Apache 2.0 license.
+.. note:: This project is not actively maintained. An alternative is the `Workflomics platform <https://workflomics.org/>`_ which uses APE to generate candidate workflows and takes it a step further by providing a platform for benchmarking the generated workflows.
 
 Dependencies
 ^^^^^^^^^^^^

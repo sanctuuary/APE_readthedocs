@@ -1,18 +1,22 @@
-Getting Started with APE
-========================
+My first APE run
+================
 
 Automated workflow composition with APE can be performed through its 
-command line interface (`CLI <../specifications/cli.html>`_) or its application programming interface 
-(`API <../specifications/java.html>`_). While the CLI provides a simple means to interact and experiment 
-with the framework, the API provides more flexibility and control over 
+command line interface (`CLI <../specifications/cli.html>`_), its application programming interface 
+(`java API <../specifications/java.html>`_) or the RESTful API (`RESTful APE <../restful-ape/introduction.html>`_). 
+The CLI provides a simple means to interact and experiment 
+with the framework, while the java API provides more flexibility and control over 
 the synthesis process. It can be used to integrate APE’s functionality 
-into other systems.
+into other systems. Finally, the RESTful API provides an interface for users to 
+engage with APE's automated pipeline exploration capabilities through HTTP requests. RESTful API is also provided as a Docker container for easy deployment and management.
 
 My first APE run
 ^^^^^^^^^^^^^^^^
 
+The first APE run is demonstrated using the CLI. The following steps guide you through the process of setting up and running APE on a simple example.
+
 Get the latest version of `APE_UseCases <https://github.com/sanctuuary/APE_UseCases>`_ 
-by either `downloading the master <https://github.com/sanctuuary/APE_UseCases/archive/master.zip>`_
+by either `downloading the main <https://github.com/sanctuuary/APE_UseCases/archive/main.zip>`_
 (zip) or cloning the repository: 
 
 .. .. code-block:: shell

@@ -1,7 +1,7 @@
 Welcome to APE’s documentation!
 ===============================
 
-APE (Automated Pipeline Explorer) is a library (available as CLI, Java API and a RESTful API) for the automated exploration of possible computational pipelines (scientific workflows) from large collections of computational tools. It also comes with a RESTful API interface. APE was originally developed at Utrecht University and is now maintained by the Netherlands eScience Center.
+`APE (Automated Pipeline Explorer) <https://github.com/sanctuuary/APE>`_ is a library (available as CLI, Java API and a RESTful API) for the automated exploration of possible computational pipelines (scientific workflows) from large collections of computational tools. It also comes with a RESTful API interface. APE was originally developed at Utrecht University and is now maintained by the Netherlands eScience Center.
 
 
 
@@ -36,19 +36,35 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Basics
+   :caption: Getting Started
 
    docs/basics/ape-introduction
    docs/basics/gettingstarted
-   docs/basics/install
 
 .. toctree::
    :maxdepth: 2
-   :caption: APE Specifications
+   :caption: Configure APE
 
-   docs/specifications/setup
-   docs/specifications/java
-   docs/specifications/cli
+   docs/specifications/domain
+   docs/specifications/constraints
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Using APE
+
+   docs/developers/install
+   docs/developers/java
+   docs/developers/cli
+   docs/developers/developers
+
+.. toctree::
+   :maxdepth: 2
+   :caption: RESTful APE
+
+   docs/restful-ape/introduction
+   docs/restful-ape/gettingstarted
+   docs/restful-ape/restful-api
+
 
 .. toctree::
    :maxdepth: 2
@@ -58,14 +74,6 @@ Contents
    docs/demo/imagemagick/imagemagick
    docs/demo/geo_gmt/geo_gmt
    docs/demo/massspectrometry/massspectrometry
-
-.. toctree::
-   :maxdepth: 2
-   :caption: RESTful APE
-
-   docs/restful-ape/introduction
-   docs/restful-ape/gettingstarted
-   docs/restful-ape/restful-api
 
 .. toctree::
    :maxdepth: 2
