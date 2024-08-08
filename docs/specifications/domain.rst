@@ -85,80 +85,61 @@ The run configuration is structured as follows:
 | Tag                               | Description                                      | Default           |
 +===================================+==================================================+===================+
 | ``constraints_path``              | Path to the JSON file containing constraints     | No constraints    |
-|                                   |                                                  |                   |
 |                                   | representing workflow specification.             |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``solutions_dir_path``            | Path to the file where the results               |                   |
-|                                   |                                                  |                   |
 |                                   | will be written.                                 |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``inputs[]``                      | Each input represent a single instance that      | No inputs         |
-|                                   |                                                  |                   |
+| ``inputs[]``                      | Each input represents a single instance that     | No inputs         |
 |                                   | will be an input to the program.                 |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``inputs[]/{}``                   | Each of the inputs can be described using the    |                   |
-|                                   |                                                  |                   |
 |                                   | terms from data taxonomy, the tags used          |                   |
-|                                   |                                                  |                   |
 |                                   | (in our example "TypesTaxonomy" reflects         |                   |
-|                                   |                                                  |                   |
 |                                   | the corresponding taxonomy sub root).            |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``outputs[]``                     | Each output represent a single instance that     | No outputs        |
-|                                   |                                                  |                   |
+| ``outputs[]``                     | Each output represents a single instance that    | No outputs        |
 |                                   | will be an output of the program.                |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``outputs[]/{}``                  | Each of the inputs can be described using        |                   |
-|                                   |                                                  |                   |
+| ``outputs[]/{}``                  | Each of the outputs can be described using       |                   |
 |                                   | the terms from data taxonomy, the tags           |                   |
-|                                   |                                                  |                   |
 |                                   | used (in our example "TypesTaxonomy"             |                   |
-|                                   |                                                  |                   |
 |                                   | reflects the corresponding taxonomy sub root).   |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``solution_length``               | Minimum (``min``) and maximum (``max``) length   |                   |
-|                                   |                                                  |                   |
-|                                   | from which  solutions should be searched.        |                   |
+|                                   | from which solutions should be searched.         |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``solutions``                     | The number of solutions that would be returned.  |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``number_of_execution_scripts``   | Number of executable scripts that will be        | 0                 |
-|                                   |                                                  |                   |
 |                                   | generated.                                       |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``number_of_generated_graphs``    | Number of workflow figures that will be          | 0                 |
-|                                   |                                                  |                   |
 |                                   | generated.                                       |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``number_of_cwl_files``           | Number of CWLworkflow files that will be         | 0                 |
-|                                   |                                                  |                   |
+| ``number_of_cwl_files``           | Number of CWL workflow files that will be        | 0                 |
 |                                   | generated.                                       |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
 | ``tool_seq_repeat``               | True if multiple solutions can comprise the      | True              |
-|                                   | same sequence of tools                           |                   |
+|                                   | same sequence of tools.                          |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``timeout(sec)``		    | Timeout for the synthesis run (in seconds)       | 300               |
+| ``timeout(sec)``                  | Timeout for the synthesis run (in seconds).      | 300               |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``debug_mode``                    | True for debug command line output               | False             |
+| ``debug_mode``                    | ``true`` for verbose command line output.        | False             |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``use_workflow_input``            | ``ALL`` if all the workflow inputs have to be    | ONE               |
-|                                   |                                                  |                   |
-|                                   | used,``ONE`` if one of the workflow inputs       |                   |
-|                                   |                                                  |                   |
-|                                   | should be used or ``NONE`` if none of the        |                   |
-|                                   |                                                  |                   |
-|                                   | workflow inputs has to be used.                  |                   |
+| ``use_workflow_input``            | ``ALL`` if all the workflow inputs must be       | ONE               |
+|                                   | used, ``ONE`` if at least one of the workflow    |                   |
+|                                   | inputs must be used, or ``NONE`` if none of the  |                   |
+|                                   | workflow inputs need to be used.                 |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
-| ``use_all_generated_data``        | ``ALL`` if all the generated data has to be      | ALL               |
-|                                   |                                                  |                   |
-|                                   | used, ``ONE`` if one of the data instances that  |                   |
-|                                   |                                                  |                   |
-|                                   | are generated as output, per tool, has to be     |                   |
-|                                   |                                                  |                   |
-|                                   | used or ``NONE`` if none of the data instances   |                   |
-|                                   |                                                  |                   |
-|                                   | is obligatory to use.                            |                   |
+| ``use_all_generated_data``        | ``ALL`` if all the generated data must be        | ALL               |
+|                                   | used, ``ONE`` if at least one of the data        |                   |
+|                                   | instances generated as output per tool must be   |                   |
+|                                   | used, or ``NONE`` if none of the data instances  |                   |
+|                                   | are required to be used.                         |                   |
 +-----------------------------------+--------------------------------------------------+-------------------+
+
+
 
 JSON example:
 
