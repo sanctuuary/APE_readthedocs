@@ -2,14 +2,14 @@ Introduction to APE
 ===================
 
 About APE
-^^^^^^^^^
+---------
 
 .. image:: ../../img/logo.png
     :width: 200px
     :alt: APE logo
     :align: left
 
-APE (Automated Pipeline Explorer) (see `GitHub<https://github.com/sanctuuary/APE>`_) is a library (available as CLI, Java API and a RESTful API) for the automated exploration of possible computational
+`APE (Automated Pipeline Explorer) <https://github.com/sanctuuary/APE>`_ is a library (available as CLI, Java API and a RESTful API) for the automated exploration of possible computational
 pipelines (scientific workflows) from large collections of computational tools.
 
 APE relies on a semantic domain model that includes tool and type taxonomies as controlled
@@ -31,13 +31,16 @@ For our paper at ICCS 2020 [2]_ we created a video that explains APE in 5 minute
 
 |
 
-.. APE in practice::
-       Our `use cases <../demo/imagemagick.html>`_ are motivated by practical
-       problems in various domains (e.g. bioinformatics, GIS [3]_).
-       In bioinformatics, the `Workflomics<https://workflomics.org/>`_ platform for creating and benchmarking workflows uses APE (specifically APE's RESTfull API) to generate candidate workflows.
+APE in practice
+----------------
+       
+Our `use cases <../demo/demo-overview.html>`_ are motivated by practical
+problems in various domains (e.g. bioinformatics [3]_, GIS [4]_).
+In bioinformatics, the `Workflomics <https://workflomics.org/>`_ platform for creating and benchmarking workflows uses APE (specifically APE's RESTfull API) to generate candidate workflows.
+
 
 Credits
-^^^^^^^
+-------
 APE has been inspired by the `Loose Programming framework PROPHETS <http://ls5-www.cs.tu-dortmund.de/projects/prophets/index.php>`_.
 It uses similar mechanisms for semantic domain modeling, workflow specification and synthesis, but strives to provide the automated
 exploration and composition functionality independent from a concrete workflow system.
@@ -45,11 +48,11 @@ exploration and composition functionality independent from a concrete workflow s
 We thank our brave first-generation users for their patience and constructive feedback that helped us to get APE into shape.
 
 License
-^^^^^^^
+-------
 APE is licensed under the `Apache 2.0 <https://github.com/sanctuuary/APE/blob/master/LICENSE>`_ license.
 
 Maven dependencies
-^^^^^^^^^^^^^^^^^^
+------------------
 1. `OWL API <https://mvnrepository.com/artifact/net.sourceforge.owlapi/owlapi-distribution>`_ - LGPL or Apache 2.0
 2. `SAT4J <https://mvnrepository.com/artifact/org.sat4j/org.sat4j.core>`_ - EPL or GNU LGPL
 3. `apache-common-lang <https://mvnrepository.com/artifact/org.apache.commons/commons-lang3>`_ - Apache 2.0
@@ -62,7 +65,7 @@ Maven dependencies
 10. `SnakeYAML <https://mvnrepository.com/artifact/org.yaml/snakeyaml>`_ - Apache 2.0
 
 Contributors
-^^^^^^^^^^^^
+------------
 * Vedran Kasalica (v.kasalica[at]esciencecenter.nl), lead research software developer
 * Maurin Voshol, student developer
 * Koen Haverkort, student developer
@@ -70,7 +73,7 @@ Contributors
 * Anna-Lena Lamprecht (anna-lena.lamprecht[at]uni-potsdam.de), project initiator and principal investigator
 
 References
-^^^^^^^^^^
+----------
 .. [1] Kasalica, V., & Lamprecht, A.-L. (2020).
        Workflow Discovery with Semantic Constraints:
        The SAT-Based Implementation of APE. Electronic Communications of the EASST, 78(0).
@@ -81,7 +84,12 @@ References
        ICCS 2020. ICCS 2020. Lecture Notes in Computer Science, vol 12143. Springer,
        https://doi.org/10.1007/978-3-030-50436-6_34
 
-.. [3] Kasalica, V., & Lamprecht, A.-L. (2019).
+.. [3] Kasalica, V., Schwammle, V., Palmblad, M., Ison, J., & Lamprecht, A. L. (2021). 
+       APE in the Wild: Automated Exploration of Proteomics Workflows in the bio. tools Registry. 
+       Journal of proteome research, 20(4), 2157-2165.
+
+
+.. [4] Kasalica, V., & Lamprecht, A.-L. (2019).
        Workflow discovery through semantic constraints: A geovisualization case study.
        In Computational science and its applications – ICCSA 2019
        (pp. 473–488), Springer International Publishing,

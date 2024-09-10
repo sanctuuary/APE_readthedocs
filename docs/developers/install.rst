@@ -1,5 +1,5 @@
-Install
-=======
+Install Java API
+================
 
 Requirements
 ^^^^^^^^^^^^^^

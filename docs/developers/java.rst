@@ -4,10 +4,10 @@ APE as a Java Library
 Run APE from a Java environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Like the CLI, the APE API relies on a configuration file or object that references 
+The APE library relies on a configuration file or object that references 
 the domain ontology, tool annotations, workflow specification and execution 
 parameters. All the parameters can either be set by a JSONObject/JSON file or 
-be set programmatically.
+be set programmatically. The guidelines how to create domain configuration (and annotation) were provided on the `previous page <setup.html>`_.
 
 APE API functions
 ^^^^^^^^^^^^^^^^^
@@ -103,8 +103,9 @@ Run the Synthesis
 
     // write the solutions to the file system
     APE.writeSolutionToFile(solutions); // write solutions to ./sat_solutions.txt
-    APE.writeDataFlowGraphs(solutions, Rank.RankDir.TOP_TO_BOTTOM); // save images to ./Figures/
+    APE.writeDataFlowGraphs(solutions, Rank.RankDir.TOP_TO_BOTTOM); // save images to ./Figures/, alternatively APE.writeTavernaDesignGraphs() method can be used to generate workflows that follow the visual design of Taverna workflows
     APE.writeExecutableWorkflows(solutions); // save scripts to ./Executables/
+    APE.writeCWLWorkflows(solutions); // save CWL files to ./CWL/
 
 
 The API allows to generate and edit the configuration file programmatically between runs:
