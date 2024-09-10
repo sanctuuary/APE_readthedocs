@@ -73,10 +73,11 @@ E1 - Additional Constraints
 By adding more constraints (``constraints_e1.json``), we avoid obtaining workflows that are ambiguous, redundant, or not relevant to
 the domain [1]_. 
 
-.. code-block:: shell
+.. code-block:: shell      uses: actions/checkout@v2
+
 
     cd ~/git/APE_UseCases
-    java -jar APE-<version>.jar GeoGMT/E1/config.jsonuration
+    java -jar APE-<version>.jar GeoGMT/E1/config.json
 
 Domain Model
 ^^^^^^^^^^^^

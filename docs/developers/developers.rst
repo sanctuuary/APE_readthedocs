@@ -27,4 +27,4 @@ The indexing of the tools and tool inputs and outputs is visualized in the follo
 
 .. image:: SLTLx_structure.png
 
-The initial ``Out`` data instances (``Out0.0``, ..., ``Out0.k-1``) are the workflow inputs (can be seen as "outputs of the environment") and the last ``In`` data instances (``In0.0``, ..., ``In0.k-1``) are the workflow outputs (can be seen as "inputs used by the following environment"). Indexes start from 0. The latest implementation (APE v2) was described in the Chapter 4 of `PhD thesis (V. Kasalica) <https://dspace.library.uu.nl/handle/1874/423894>`_.
+The initial ``Out`` data instances (``Out0.0``, ... , ``Out0.k-1``) are the workflow inputs (can be seen as "outputs of the environment") and the last ``In`` data instances (``In0.0``, ... , ``In0.k-1``) are the workflow outputs (can be seen as "inputs used by the following environment"). Indexes start from 0. The latest implementation (APE v2) was described in the Chapter 4 of `PhD thesis (V. Kasalica) <https://dspace.library.uu.nl/handle/1874/423894>`_.
