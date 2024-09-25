@@ -3,15 +3,20 @@ APE Command Line Tool Documentation
 
 Overview
 --------
-The APE command line tool allows users to execute automated workflow composition processes using different methods. This tool supports three distinct methods: **synthesis**, **convert-tools**, and **bio.tools**.
+The APE command line tool allows users to execute automated workflow composition processes using different methods. Since version 2.4 APE supports three distinct methods: **synthesis**, **convert-tools**, and **bio.tools**.
+
+The APE command line tool is distributed as an executable JAR file, which can be downloaded from the `Maven repository <https://mvnrepository.com/artifact/io.github.sanctuuary/APE>`_. Select the `latest release <https://mvnrepository.com/artifact/io.github.sanctuuary/APE/latest>`_ and download the executable JAR file. Under the `Files` section click `View All` to see the available files. In the list of files you will find the `APE-<version>-executable.jar` file. Download the file to your local machine.
+
+.. note::
+    APE v2.4+ is required to run the CLI using `[method]` tag. For older versions, the method tag is not required, and `synthesis` is the default method.
 
 Usage
 -----
-To run the APE executable JAR, use the following command:
+To run the APE v2.4+ executable JAR, use the following command:
 
 .. code-block:: shell
 
-    java -jar APE-<version>-executable.jar [method] [options]
+    java -jar APE-2.4.0-executable.jar [method] [options]
 
 Where `[method]` can be one of the following:
 
