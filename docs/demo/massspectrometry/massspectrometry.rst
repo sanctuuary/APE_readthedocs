@@ -27,14 +27,14 @@ No 1
 ^^^^
 
 As an example, if you would download the 
-`APE-2.3.0-executable.jar <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/2.3.0/APE-2.3.0-executable.jar>`_ 
+`APE-2.4.0-executable.jar <https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/2.4.0/APE-2.4.0-executable.jar>`_ 
 to the root of APE_UseCases repository on your local machine, 
 you could run this demo by executing the following command:
 
 .. code-block:: shell
 
     cd ~/git/APE_UseCases
-    java -jar APE-2.3.0-executable.jar MassSpectometry/No1/config.json
+    java -jar APE-2.4.0-executable.jar MassSpectometry/No1/config.json
 
 The results of the synthesis would be stored under the directory 
 specified in the configuration file (``solutions_dir_path`` parameter). The results of the synthesis would be:
