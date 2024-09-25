@@ -1,6 +1,9 @@
 APE Command Line Tool Documentation
 =====================================
 
+.. note::
+    APE v2.4.0 is not yet released, but a beta version is available for testing `here <https://github.com/sanctuuary/APE_readthedocs/blob/v2.4/files/APE-2.4.0_beta-executable.jar>`_.
+
 Overview
 --------
 The APE command line tool allows users to execute automated workflow composition processes using different methods. Since version 2.4 APE supports three distinct methods: **synthesis**, **convert-tools**, and **bio.tools**.
