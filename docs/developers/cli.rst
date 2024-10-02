@@ -1,8 +1,8 @@
 APE from Command Line
 =====================
 
-.. note::
-    APE v2.4.0 is not yet released, but a beta version is available for testing `here <https://github.com/sanctuuary/APE_readthedocs/blob/v2.4/files/APE-2.4.0-dev1-executable.jar>`_ .
+.. important::
+    APE v2.4.0 is not yet released, but a beta version is available for testing `here <https://github.com/sanctuuary/APE_readthedocs/blob/v2.4/files/APE-2.4.0-dev2-executable.jar>`_ .
 
 Overview
 --------
@@ -74,7 +74,6 @@ Example
 
 .. _pull-a-tool:
 Pull a Tool
-^^^^^^^^^^^
 
 Fetches a tool from bio.tools using the bio.tools API and converts it to APE-compatible tool annotation format and generates the initial CWL configuration file.
 
