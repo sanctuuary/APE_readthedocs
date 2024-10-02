@@ -2,7 +2,7 @@ APE Command Line Tool Documentation
 =====================================
 
 .. note::
-    APE v2.4.0 is not yet released, but a beta version is available for testing `here https://github.com/sanctuuary/APE_readthedocs/blob/v2.4/files/APE-2.4.0-dev1-executable.jar`_.
+    APE v2.4.0 is not yet released, but a beta version is available for testing `here <https://github.com/sanctuuary/APE_readthedocs/blob/v2.4/files/APE-2.4.0-dev1-executable.jar>`_ .
 
 Overview
 --------
