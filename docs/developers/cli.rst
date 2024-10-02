@@ -2,7 +2,7 @@ APE Command Line Tool Documentation
 =====================================
 
 .. note::
-    APE v2.4.0 is not yet released, but a beta version is available for testing `here <https://github.com/sanctuuary/APE_readthedocs/blob/v2.4/files/APE-2.4.0_beta-executable.jar>`_.
+    APE v2.4.0 is not yet released, but a beta version is available for testing `here https://github.com/sanctuuary/APE_readthedocs/blob/v2.4/files/APE-2.4.0-dev1-executable.jar`_.
 
 Overview
 --------
@@ -24,8 +24,9 @@ To run the APE v2.4+ executable JAR, use the following command:
 Where `[method]` can be one of the following:
 
 1. **synthesis**
-2. **convert-tools**
-3. **bio.tools**
+2. **pull-a-tool**
+3. **convert-tools**
+4. **bio.tools**
 
 Methods
 -------
@@ -37,7 +38,8 @@ Synthesis
 This method is the primary function of the APE tool, and it requires a configuration file as input.
 The method executed the synthesis based on the provided configuration file.
 
-**Usage:**
+Usage
+"""""
 
 .. code-block:: shell
 
@@ -49,24 +51,66 @@ APE v2.4.0 also supports the legacy method of running synthesis using the follow
 
     java -jar APE-<version>-executable.jar [path-to-configuration.json]
 
-**Parameters:**
+Parameters
+""""""""""
 
-- `args`: An array of strings containing the arguments provided to the method. Only one argument is expected, which is the path to the configuration JSON file. In case the configuration file name is not provided, the tool will look for a file named `config.json` in the current directory.
+- `[path-to-configuration.json]`: Only one argument is expected, which is the path to the configuration JSON file. In case the configuration file name is not provided, the tool will look for a file named `config.json` in the current directory. The path can be local or remote (URL).
+
+Example
+"""""""
+
+.. code-block:: shell
+
+    java -jar APE-2.4.0-executable.jar synthesis ImageMagick/Example1/config.json
+
+
+Pull a Tool
+^^^^^^^^^^^
+
+Fetches a tool from bio.tools using the bio.tools API and converts it to APE-compatible tool annotation format and generates the initial CWL configuration file.
+
+Usage
+"""""
+
+.. code-block:: shell
+
+    java -jar APE-<version>-executable.jar pull-a-tool biotoolsID
+
+
+Parameters
+""""""""""
+
+- `biotoolsID`: A string containing the bio.tools ID of the tool to be fetched. The bio.tools ID is the unique identifier for a tool in the bio.tools database. 
+
+
+.. note::
+    **How to obtain `biotoolsIDs`**
+
+    The `biotoolsID` for each tool can be obtained from bio.tools. For example, the `biotoolsID` for the tool `comet <https://bio.tools/comet>`_ is `comet`. It is visible in the URL of the tool page. Alternatively, you can use bio.tools REST API to fetch the `biotoolsID` for a tool, see `comet entry <https://bio.tools/api/tool/comet>`_.
+
+Example
+"""""""
+
+.. code-block:: shell
+
+    java -jar APE-2.4.0-executable.jar pull-a-tool comet
 
 Convert Tools
 ^^^^^^^^^^^^^
 
 Retrieves tools from bio.tools using the bio.tools API and converts them to APE-compatible tool annotation format.
 
-**Usage:**
+Usage
+"""""
 
 .. code-block:: shell
 
     java -jar APE-<version>-executable.jar convert-tools [path-to-biotoolsIDs.json]
 
-**Parameters:**
+Parameters
+""""""""""
 
-- `args`: An array of strings containing the arguments provided to the method. Only one argument is expected, which is the path to the file where the biotoolsIDs are stored.
+- `[path-to-biotoolsIDs.json]`: Only one argument is expected, which is the path to the file where the list of `biotoolsIDs` is stored (as JSON array). See the note above on how to obtain `biotoolsIDs`.
 
 An example of the `biotoolsIDs.json` file is as follows:
 
@@ -80,13 +124,14 @@ An example of the `biotoolsIDs.json` file is as follows:
         "mzrecal"
     ]
 
-The bio.tools API used to fetch the tools is agnostic to the case of the tool names. For example, the tool `comet` can be written as `Comet`.
+The bio.tools API used to fetch the tools is agnostic to the case of the tool names. For example, the tool `comet` can be written as `Comet`. 
 
+Example
+"""""""
 
-**How to obtain `biotoolsIDs`**
+.. code-block:: shell
 
-The `biotoolsID` for each tool can be obtained from bio.tools. For example, the `biotoolsID` for the tool `comet <https://bio.tools/comet>`_ is `comet`. It is visible in the URL of the tool page. Alternatively, you can use bio.tools REST API to fetch the `biotoolsID` for a tool, see `comet entry <https://bio.tools/api/tool/comet>`_.
-
+    java -jar APE-2.4.0-executable.jar convert-tools tools/bioToolsIDs.json
 
 
 Full bio.tools
@@ -94,7 +139,8 @@ Full bio.tools
 
 Fetches all well-annotated the tools from bio.tools using the bio.tools API.
 
-**Usage:**
+Usage
+"""""
 
 .. code-block:: shell
 
@@ -104,27 +150,13 @@ Fetches all well-annotated the tools from bio.tools using the bio.tools API.
 
 - This method does not require any additional parameters. It will fetch the all the tools from bio.tools that are well-annotated, i.e., they have at least one input and one output fully specified (i.e., with a data type and a format). The tools will be converted to APE-compatible tool annotation format and stored in the `tools.json` file in the current directory.
 
-Examples
---------
-Here are some example commands to illustrate the usage of each method:
-
-1. To execute synthesis with a configuration file:
-
-.. code-block:: shell
-
-    java -jar APE-2.4.0-executable.jar synthesis ImageMagick/Example1/config.json
-
-2. To convert tools:
-
-.. code-block:: shell
-
-    java -jar APE-2.4.0-executable.jar convert-tools tools/bioToolsIDs.json
-
-3. To fetch tools from bio.tools:
+Example
+"""""""
 
 .. code-block:: shell
 
     java -jar APE-2.4.0-executable.jar bio.tools
+
 
 Error Handling
 --------------
