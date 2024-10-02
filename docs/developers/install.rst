@@ -2,9 +2,9 @@ Install Java API
 ================
 
 Requirements
-^^^^^^^^^^^^^^
-To run APE you need to have `Java 1.8 
-<https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html>`_ 
+^^^^^^^^^^^^
+To run APE you need to have `Java 17 
+<https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html>`_ 
 (or higher) installed on your system (use the command ``$ java -version`` 
 to check your local version). 
 

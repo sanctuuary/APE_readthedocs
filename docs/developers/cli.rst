@@ -1,5 +1,5 @@
-APE Command Line Tool Documentation
-=====================================
+APE from Command Line
+=====================
 
 .. note::
     APE v2.4.0 is not yet released, but a beta version is available for testing `here <https://github.com/sanctuuary/APE_readthedocs/blob/v2.4/files/APE-2.4.0-dev1-executable.jar>`_ .
@@ -10,11 +10,19 @@ The APE command line tool allows users to execute automated workflow composition
 
 The APE command line tool is distributed as an executable JAR file, which can be downloaded from the `Maven repository <https://mvnrepository.com/artifact/io.github.sanctuuary/APE>`_. Select the `latest release <https://mvnrepository.com/artifact/io.github.sanctuuary/APE/latest>`_ and download the executable JAR file. Under the `Files` section click `View All` to see the available files. In the list of files you will find the `APE-<version>-executable.jar` file. Download the file to your local machine.
 
+Requirements
+^^^^^^^^^^^^
+To run APE v2.4 or higher you need to have `Java 17 
+<https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html>`_ 
+(or higher) installed on your system (use the command ``$ java -version`` 
+to check your local version). 
+
 .. note::
     APE v2.4+ is required to run the CLI using `[method]` tag. For older versions, the method tag is not required, and `synthesis` is the default method.
 
 Usage
 -----
+
 To run the APE v2.4+ executable JAR, use the following command:
 
 .. code-block:: shell
@@ -23,15 +31,15 @@ To run the APE v2.4+ executable JAR, use the following command:
 
 Where `[method]` can be one of the following:
 
-1. **synthesis**
-2. **pull-a-tool**
-3. **convert-tools**
-4. **bio.tools**
+- `synthesis` - see :ref:`synthesis`
+- `pull-a-tool` - see :ref:`pull-a-tool`
+- `convert-tools` - see :ref:`convert-tools`
+- `bio.tools` - see :ref:`bio.tools`
 
 Methods
 -------
 
-
+.. _synthesis:
 Synthesis
 ^^^^^^^^^
 
@@ -64,6 +72,7 @@ Example
     java -jar APE-2.4.0-executable.jar synthesis ImageMagick/Example1/config.json
 
 
+.. _pull-a-tool:
 Pull a Tool
 ^^^^^^^^^^^
 
@@ -95,6 +104,8 @@ Example
 
     java -jar APE-2.4.0-executable.jar pull-a-tool comet
 
+
+.. _convert-tools:
 Convert Tools
 ^^^^^^^^^^^^^
 
@@ -134,6 +145,7 @@ Example
     java -jar APE-2.4.0-executable.jar convert-tools tools/bioToolsIDs.json
 
 
+.. _bio.tools:
 Full bio.tools
 ^^^^^^^^^^^^^^
 
