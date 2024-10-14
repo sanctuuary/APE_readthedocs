@@ -2,7 +2,7 @@ APE from Command Line
 =====================
 
 .. important::
-    APE v2.4.0 is not yet released, but a beta version is available for testing `here <https://github.com/sanctuuary/APE_readthedocs/blob/v2.4/files/APE-2.4.0-dev2-executable.jar>`_ .
+    APE v2.4.0 is not yet released, but `v2.4.0-dev3 <https://github.com/sanctuuary/APE_readthedocs/blob/v2.4/files/APE-2.4.0-dev3-executable.jar>`_ version is available for testing.
 
 Overview
 --------
