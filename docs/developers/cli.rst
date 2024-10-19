@@ -74,6 +74,7 @@ Example
 
 .. _pull-a-tool:
 Pull a Tool
+^^^^^^^^^^^
 
 Fetches a tool from bio.tools using the bio.tools API and converts it to APE-compatible tool annotation format and generates the initial CWL configuration file.
 
