@@ -44,8 +44,8 @@ using command:
     java -jar APE-<version>-executable.jar [path_to_ape_configuration_file]
 
 
-As an example, if you would download the `APE-2.3.0-executable.jar 
-<https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/2.3.0/APE-2.3.0-executable.jar>`_ 
+As an example, if you would download the `APE-2.4.0-executable.jar 
+<https://repo.maven.apache.org/maven2/io/github/sanctuuary/APE/2.4.0/APE-2.4.0-executable.jar>`_ 
 to the root of APE_UseCases repository on your local machine, 
 you could run this demo by executing the following command:
 

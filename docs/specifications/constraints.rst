@@ -102,6 +102,8 @@ ID                    Description
 ``not_connected_op``  The 1st operation should never generate an output sued by the 2nd operation.
 --------------------  -----------
 ``not_repeat_op``     No operation that belongs to the subtree should be repeated within the workflow.
+--------------------  -----------
+``unique_inputs``     All inputs per tool must be unique, i.e., no tool can use the same input twice.
 ====================  ===========
 
 .. _sltlx-constraints:
