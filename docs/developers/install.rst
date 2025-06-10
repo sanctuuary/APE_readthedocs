@@ -2,9 +2,9 @@ Install Java API
 ================
 
 Requirements
-^^^^^^^^^^^^^^
-To run APE you need to have `Java 1.8 
-<https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html>`_ 
+^^^^^^^^^^^^
+To run APE you need to have `Java 17 
+<https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html>`_ 
 (or higher) installed on your system (use the command ``$ java -version`` 
 to check your local version). 
 
@@ -34,7 +34,7 @@ To add a dependency on APE, use the following:
             <dependency>
                 <groupId>io.github.sanctuuary</groupId>
                 <artifactId>APE</artifactId>
-                <version>2.3.0</version>
+                <version>2.5.2</version>
             </dependency>
 
     .. tab:: Gradle
@@ -42,14 +42,14 @@ To add a dependency on APE, use the following:
         .. code-block:: bash
 
             // https://mvnrepository.com/artifact/io.github.sanctuuary/APE
-            compile group: 'io.github.sanctuuary', name: 'APE', version: '2.3.0'
+            compile group: 'io.github.sanctuuary', name: 'APE', version: '2.5.2'
 
     .. tab:: Ivy
 
         .. code-block:: xml
 
             <!-- https://mvnrepository.com/artifact/io.github.sanctuuary/APE -->
-            <dependency org="io.github.sanctuuary" name="APE" rev="2.3.0"/>
+            <dependency org="io.github.sanctuuary" name="APE" rev="2.5.2"/>
 
 .. note:: 
     For information regarding dependencies (SBT, Grape, Buildr etc.), we refer to the `APE maven repository 

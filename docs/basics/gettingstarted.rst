@@ -30,7 +30,7 @@ by either `downloading the main <https://github.com/sanctuuary/APE_UseCases/arch
     git clone https://github.com/sanctuuary/APE_UseCases.git
 
 
-Download the latest version of `APE-2.3.0-executable.jar <https://repo1.maven.org/maven2/io/github/sanctuuary/APE/2.3.0/APE-2.3.0-executable.jar>`_ 
+Download the latest version of `APE-2.5.2-executable.jar <https://repo1.maven.org/maven2/io/github/sanctuuary/APE/2.5.2/APE-2.5.2-executable.jar>`_ 
 and add it to the root of the project (``~/git/APE_UseCases``).
 Navigate to the root of the project and execute the jar with an 
 argument that is a (relative) path to the configuration file.
@@ -38,7 +38,7 @@ argument that is a (relative) path to the configuration file.
 .. code-block:: shell
 
     cd ~/git/APE_UseCases
-    java -jar APE-2.3.0-executable.jar ImageMagick/Example1/config.json
+    java -jar APE-2.5.2-executable.jar ImageMagick/Example1/config.json
 
 See `Use cases and Demos <../demo/demo-overview.html>`_ for more information about the results 
 and on how to execute the composed workflow.

@@ -244,9 +244,7 @@ The following example prints a SolutionWorkflow to the console.
 APE as a Web plug-in
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
-    The following documentation is for APE **2.3.0**.
-    Use :download:`APE-executable.jar <https://repo1.maven.org/maven2/io/github/sanctuuary/APE/2.3.0/APE-2.3.0-executable.jar>`.
+
 
 Tag information
 ~~~~~~~~~~~~~~~
