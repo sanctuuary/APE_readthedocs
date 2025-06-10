@@ -1,8 +1,6 @@
 APE from Command Line
 =====================
 
-.. important::
-    APE v2.4.0 is not yet released, but `v2.4.0-dev4 <https://github.com/sanctuuary/APE_readthedocs/blob/v2.4/files/APE-2.4.0-dev4-executable.jar>`_ version is available for testing.
 
 Overview
 --------
@@ -27,7 +25,7 @@ To run the APE v2.4+ executable JAR, use the following command:
 
 .. code-block:: shell
 
-    java -jar APE-2.4.0-executable.jar [method] [options]
+    java -jar APE-2.5.2-executable.jar [method] [options]
 
 Where `[method]` can be one of the following:
 
@@ -53,7 +51,7 @@ Usage
 
     java -jar APE-<version>-executable.jar synthesis [path-to-configuration.json]
 
-APE v2.4.0 also supports the legacy method of running synthesis using the following command:
+APE v2.5.2 also supports the legacy method of running synthesis using the following command:
 
 .. code-block:: shell
 
@@ -69,14 +67,14 @@ Example
 
 .. code-block:: shell
 
-    java -jar APE-2.4.0-executable.jar synthesis ImageMagick/Example1/config.json
+    java -jar APE-2.5.2-executable.jar synthesis ImageMagick/Example1/config.json
 
 
 .. _pull-a-tool:
 Pull a Tool
 ^^^^^^^^^^^
 
-Fetches a tool from bio.tools using the bio.tools API and converts it to APE-compatible tool annotation format and generates the initial CWL configuration file.
+Fetches a tool from bio.tools via the API, generates an APE-compatible CWL file, and creates a lightweight tool.json pointer to the CWL. Add this JSON to the APE domain configuration to include the tool in synthesis.
 
 Usage
 """""
@@ -102,7 +100,7 @@ Example
 
 .. code-block:: shell
 
-    java -jar APE-2.4.0-executable.jar pull-a-tool comet
+    java -jar APE-2.5.2-executable.jar pull-a-tool comet
 
 
 .. _convert-tools:
@@ -142,7 +140,7 @@ Example
 
 .. code-block:: shell
 
-    java -jar APE-2.4.0-executable.jar convert-tools tools/bioToolsIDs.json
+    java -jar APE-2.5.2-executable.jar convert-tools tools/bioToolsIDs.json
 
 
 .. _bio.tools:
@@ -167,7 +165,7 @@ Example
 
 .. code-block:: shell
 
-    java -jar APE-2.4.0-executable.jar bio.tools
+    java -jar APE-2.5.2-executable.jar bio.tools
 
 
 Error Handling
