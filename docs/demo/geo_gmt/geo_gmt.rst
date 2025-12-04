@@ -25,7 +25,7 @@ steps. Some of them are given here for demonstration:
 E0 - Initial Workflow
 ^^^^^^^^^^^^^^^^^^^^^
 In order to run the synthesis ``APE-<version>.jar`` 
-needs to be available: https://github.com/sanctuuary/APE. 
+needs to be available: https://github.com/workflomics/ape.
 
 .. note::
     In order to be able to execute the generated workflows 

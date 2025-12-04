@@ -9,7 +9,7 @@ About APE
     :alt: APE logo
     :align: left
 
-`APE (Automated Pipeline Explorer) <https://github.com/sanctuuary/APE>`_ is a library (available as CLI, Java API and a RESTful API) for the automated exploration of possible computational
+`APE (Automated Pipeline Explorer) <https://github.com/workflomics/ape>`_ is a library (available as CLI, Java API and a RESTful API) for the automated exploration of possible computational
 pipelines (scientific workflows) from large collections of computational tools.
 
 APE relies on a semantic domain model that includes tool and type taxonomies as controlled
@@ -49,7 +49,7 @@ We thank our brave first-generation users for their patience and constructive fe
 
 License
 -------
-APE is licensed under the `Apache 2.0 <https://github.com/sanctuuary/APE/blob/master/LICENSE>`_ license.
+APE is licensed under the `Apache 2.0 <https://github.com/workflomics/ape/blob/main/LICENSE>`_ license.
 
 Maven dependencies
 ------------------
