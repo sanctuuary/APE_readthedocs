@@ -1,7 +1,7 @@
 Welcome to APE’s documentation!
 ===============================
 
-`APE (Automated Pipeline Explorer) <https://github.com/sanctuuary/APE>`_ is a library (available as CLI, Java API and a RESTful API) for the automated exploration of possible computational pipelines (scientific workflows) from large collections of computational tools. It also comes with a RESTful API interface. APE was originally developed at Utrecht University and is now maintained by the Netherlands eScience Center.
+`APE (Automated Pipeline Explorer) <https://github.com/workflomics/ape>`_ is a library (available as CLI, Java API and a RESTful API) for the automated exploration of possible computational pipelines (scientific workflows) from large collections of computational tools. It also comes with a RESTful API interface. APE was originally developed at Utrecht University and is now maintained by the Netherlands eScience Center.
 
 
 
@@ -10,17 +10,17 @@ Welcome to APE’s documentation!
           you don't understand something, or cannot find what you
           are looking for in the docs, help us make the documentation better
           by submitting an issue or pull request on the  `GitHub repository
-          <https://github.com/sanctuuary/APE/issues>`_!
+          <https://github.com/workflomics/ape/issues>`_!
           We welcome contributions (bug reports, bug fixes, feature requests, extensions,
           use cases, etc.) to APE. Please get in touch with
           Vedran Kasalica (v.kasalica[at]esciencecenter.nl) if you have any questions regarding
           your contribution. We expect all contributors to follow our
-          `Code of Conduct <https://github.com/sanctuuary/APE/blob/master/CODE_OF_CONDUCT.md>`_.
+          `Code of Conduct <https://github.com/workflomics/ape/blob/main/CODE_OF_CONDUCT.md>`_.
 
 Relevant links
 ==============
 
-- `APE GitHub <https://github.com/sanctuuary/ape>`_
+- `APE GitHub <https://github.com/workflomics/ape>`_
 - `RESTful APE <https://github.com/sanctuuary/restape>`_
 
 - `Use cases <https://github.com/sanctuuary/APE_UseCases>`_

@@ -1,7 +1,7 @@
 Introduction to APE Web
 =======================
 
-`APE Web <https://github.com/sanctuuary/APE-Web>`_ is a web interface build around APE to provide a user-friendly interface for using APE.
+`APE Web <https://github.com/workflomics/APE-Web>`_ is a web interface build around APE to provide a user-friendly interface for using APE.
 It allows users to set up and share domains, and run APE to explore workflows online.
 The inputs, outputs and constraints for workflows can easily be configured via the interface.
 Additional tools are also included, such as a visual constraint sketcher and workflow comparer.
